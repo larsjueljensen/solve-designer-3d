@@ -12,3 +12,4 @@ function MovingObject.onTouchSequenceBegin()
 
 
 end
+

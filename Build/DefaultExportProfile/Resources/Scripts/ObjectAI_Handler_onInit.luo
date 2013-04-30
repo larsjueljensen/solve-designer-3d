@@ -11,3 +11,4 @@ function ObjectAI.onInit()
 log.message("In ObjectAI onInit")
 
 end
+
