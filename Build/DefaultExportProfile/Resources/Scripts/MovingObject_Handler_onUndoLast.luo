@@ -1,0 +1,14 @@
+
+
+
+
+
+
+
+function MovingObject.onUndoLast()
+
+
+this.UndoLastModelImport()
+
+
+end

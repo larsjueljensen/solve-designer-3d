@@ -1,0 +1,17 @@
+
+
+
+
+
+
+
+function ASPMain.SaveSnap_onEnter()
+
+
+log.message("Saving image")
+
+
+
+
+
+end

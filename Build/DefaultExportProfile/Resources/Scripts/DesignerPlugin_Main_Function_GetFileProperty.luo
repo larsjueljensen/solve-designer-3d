@@ -1,0 +1,14 @@
+
+
+
+
+
+
+
+function DesignerPlugin_Main.GetFileProperty(sArticleNumber)
+
+
+local nHeight=cache.getFileProperty(sArticleNumber,cache.kPropertyHeight)
+
+
+end

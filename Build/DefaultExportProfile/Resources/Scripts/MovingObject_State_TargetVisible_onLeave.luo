@@ -1,0 +1,19 @@
+
+
+
+
+
+
+
+function MovingObject.TargetVisible_onLeave()
+
+
+
+
+
+hud.setComponentVisible(hud.getComponent(this.getUser(),"main.CursorThumb"),false)
+
+
+log.message("Leaving Visibility loop")
+
+end

@@ -1,0 +1,18 @@
+
+
+
+
+
+
+
+function MovingObject.onSensorCollisionBegin(nSensorID,hTargetObject,nTargetSensorID)
+
+
+
+
+
+
+
+
+
+end

@@ -1,0 +1,44 @@
+
+
+
+
+
+
+
+function MovingObject.UpdateLock()
+
+
+
+
+
+
+if this.hSelectedObject()~=nil
+then
+
+local bState=hashtable.get(this.htLock(),scene.getObjectTag(application.getCurrentUserScene(),this.hSelectedObject()))
+local hIcon=hud.getComponent(application.getCurrentUser(),"controls.Lock_Btn")
+
+
+if bState==0 then
+
+log.message("Object is Open")
+
+
+
+
+elseif bState==1 then
+
+log.message("Object is Locked")
+
+
+
+end
+
+log.message("UpdateLock, bState = ",bState)
+
+
+return bState
+
+end
+
+end

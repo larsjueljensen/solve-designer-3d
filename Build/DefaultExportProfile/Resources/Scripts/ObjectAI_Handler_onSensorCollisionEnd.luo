@@ -1,0 +1,20 @@
+
+
+
+
+
+
+
+function ObjectAI.onSensorCollisionEnd(nSensorID,hTargetObject,nTargetSensorID)
+
+
+
+
+
+
+
+
+
+
+
+end

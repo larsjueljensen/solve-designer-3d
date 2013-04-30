@@ -1,0 +1,22 @@
+
+
+
+
+
+
+
+function ASPMain.onWheelController(state)
+
+
+this.bWheelUsed(true)
+
+
+
+
+
+
+
+
+
+
+end

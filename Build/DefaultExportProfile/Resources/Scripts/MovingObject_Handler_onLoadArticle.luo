@@ -1,0 +1,14 @@
+
+
+
+
+
+
+
+function MovingObject.onLoadArticle(nArtNr)
+
+
+this.LoadArticle(nArtNr)
+
+
+end

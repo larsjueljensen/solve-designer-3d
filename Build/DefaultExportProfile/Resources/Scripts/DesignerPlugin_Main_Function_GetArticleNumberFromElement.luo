@@ -1,0 +1,15 @@
+
+
+
+
+
+
+
+function DesignerPlugin_Main.GetArticleNumberFromElement(hElement)
+
+
+local sArticleNumber=xml.getElementValue(xml.getElementFirstChildWithName(hElement,"articleNumber"))
+return sArticleNumber
+
+
+end

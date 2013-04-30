@@ -1,0 +1,41 @@
+
+
+
+
+
+
+
+function ASPMain.ReceiveSearchArticle(hComponent)
+
+
+
+
+
+
+
+
+
+
+
+
+
+for i=0,15 do
+
+hud.addListItem(hud.getComponent(this.getUser(),"controls.ArticleResult"),"Artikkel: "..i)
+
+end
+
+
+
+
+
+hud.callAction(this.getUser(),"controls.ShowArticleResults")
+
+
+
+
+
+
+
+
+end

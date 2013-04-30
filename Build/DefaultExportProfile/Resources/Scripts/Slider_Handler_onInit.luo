@@ -1,0 +1,25 @@
+
+
+
+
+
+
+
+function Slider.onInit()
+
+
+log.message("INIT create slidehud.")
+
+
+
+
+local sSlider=this.sSliderName()
+
+hud.newTemplateInstance(application.getCurrentUser(),"Slider_HUD",this.sSliderName())
+local hTest=hud.getComponent(application.getCurrentUser(),"Slider.Thumbnail_Container")
+log.message(hTest)
+
+
+
+
+end

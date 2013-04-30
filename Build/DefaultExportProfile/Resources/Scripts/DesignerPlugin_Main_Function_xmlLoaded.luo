@@ -1,0 +1,18 @@
+
+
+
+
+
+
+
+function DesignerPlugin_Main.xmlLoaded()
+
+
+
+this.LogToWeb("xmlLoaded!")
+
+local hPaletteItems=this.CreateItemsFromXML()
+this.LogToWeb("xmlLoaded: "..hPaletteItems)
+
+
+end

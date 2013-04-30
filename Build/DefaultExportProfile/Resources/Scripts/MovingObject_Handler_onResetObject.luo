@@ -1,0 +1,14 @@
+
+
+
+
+
+
+
+function MovingObject.onResetObject()
+
+
+object.resetRotation(this.hLastObject(),object.kGlobalSpace)
+
+
+end

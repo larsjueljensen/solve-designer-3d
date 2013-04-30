@@ -1,0 +1,14 @@
+
+
+
+
+
+
+
+function ASPMain.RoomInfo(state)
+
+
+log.message("In fnc RoomInfo, received : ",state)
+
+
+end

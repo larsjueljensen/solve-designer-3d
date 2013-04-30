@@ -1,0 +1,33 @@
+
+
+
+
+
+
+
+function ASPMain.Set3DParameters()
+
+
+local hScene=application.getCurrentUserScene()
+local hUser=application.getCurrentUser()
+
+local hFloor=scene.getTaggedObject(application.getCurrentUserScene(),"Floor")
+local hWall_1=scene.getTaggedObject(application.getCurrentUserScene(),"Wall2")
+local hWall_2=scene.getTaggedObject(application.getCurrentUserScene(),"Wall3")
+
+
+
+local r=user.getAIVariable(hUser,"ASPRoom_AI","WallColorRed")
+local g=user.getAIVariable(hUser,"ASPRoom_AI","WallColorGreen")
+local b=user.getAIVariable(hUser,"ASPRoom_AI","WallColorBlue")
+
+
+
+
+
+
+
+
+
+
+end

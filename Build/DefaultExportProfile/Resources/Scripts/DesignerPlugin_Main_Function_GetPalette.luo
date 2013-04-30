@@ -1,0 +1,22 @@
+
+
+
+
+
+
+
+function DesignerPlugin_Main.GetPalette(sCategory)
+
+
+this.LogToWeb("GetPalette: "..sCategory)
+
+
+local pItemURL=this.buildPaletteItemURL()
+local pObjectURL=this.buildObjectURL()
+
+local sArticle=this.FetchArticleInfo()
+
+
+
+
+end

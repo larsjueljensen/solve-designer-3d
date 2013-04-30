@@ -1,0 +1,19 @@
+
+
+
+
+
+
+
+function ASPMain.onTakeSnap()
+
+
+
+
+
+this.TakeSnapshot()
+
+
+
+
+end

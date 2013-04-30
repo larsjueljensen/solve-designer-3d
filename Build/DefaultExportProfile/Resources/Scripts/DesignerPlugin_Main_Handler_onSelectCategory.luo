@@ -1,0 +1,21 @@
+
+
+
+
+
+
+
+function DesignerPlugin_Main.onSelectCategory(sCategory)
+
+this.LogToWeb("onSelectCategory: "..sCategory)
+
+this.PopulatePaletteWithCategory(sCategory)
+
+
+
+
+
+
+
+
+end

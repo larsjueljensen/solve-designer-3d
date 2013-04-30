@@ -1,0 +1,18 @@
+
+
+
+
+
+
+
+function MovingObject.onDelete()
+
+
+
+
+
+log.message("onDelete: ",this.hLastObject())
+this.DestroyObject(this.hLastObject())
+
+
+end

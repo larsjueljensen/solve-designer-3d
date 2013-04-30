@@ -1,0 +1,24 @@
+
+
+
+
+
+
+
+function MovingObject.onDeselect()
+
+
+
+
+
+
+this.hSelectedObject(nil)
+
+local hIcon=object.getParent(this.hMovingObject())
+
+object.setVisible(hIcon)
+this.hMovingObject(nil)
+log.message("onDeselect: object deselected")
+
+
+end

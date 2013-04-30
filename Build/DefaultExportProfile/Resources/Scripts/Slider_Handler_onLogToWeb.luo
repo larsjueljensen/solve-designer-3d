@@ -1,0 +1,15 @@
+
+
+
+
+
+
+
+function Slider.onLogToWeb(sLogStatement)
+
+
+this.LogToWeb(sLogStatement)
+
+
+
+end

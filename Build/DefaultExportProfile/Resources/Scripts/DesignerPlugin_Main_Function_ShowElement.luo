@@ -1,0 +1,89 @@
+
+
+
+
+
+
+
+function DesignerPlugin_Main.ShowElement()
+
+
+local hXML=this.BohusXML()
+
+
+log.message("Found xml : ",hXML)
+
+local hRoot=xml.getRootElement(hXML)
+
+if hRoot then
+
+
+
+
+local nCount=xml.getElementChildCount(hRoot)
+for i=0,nCount-1
+do
+local hChild1=xml.getElementChildAt(hRoot,i)
+table.add(this.tChildren(),xml.toString(hChild1))
+log.message(this.tChildren(),xml.toString(hChild1))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end
+
+local hAttribute=xml.getElementAttributeAt(hRoot,0)
+
+log.message(xml.getAttributeValue(hAttribute))
+
+end
+
+
+
+
+end

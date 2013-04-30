@@ -1,0 +1,22 @@
+
+
+
+
+
+
+
+function DesignerPlugin_Main.GetPaletteItem_onLoop()
+
+
+local sFilename=this.sCurrentArticleNumber()..".png"
+
+local nStatus=cache.getFileStatus(sFilename)
+
+if(nStatus==-2 or nStatus==1)then
+
+this.Idle()
+
+end
+
+
+end

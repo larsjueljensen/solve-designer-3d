@@ -1,0 +1,14 @@
+
+
+
+
+
+
+
+function MovingObject.onSetWheelPosition(nPosX)
+
+
+this.SetWheel((-nPosX*0.5)+50)
+
+
+end

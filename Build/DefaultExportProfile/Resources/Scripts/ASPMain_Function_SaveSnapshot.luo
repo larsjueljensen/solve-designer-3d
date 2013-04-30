@@ -1,0 +1,17 @@
+
+
+
+
+
+
+
+function ASPMain.SaveSnapshot()
+
+
+
+cache.sendFile("Bohus_snap.jpg","file://"..system.getDocumentsDirectory().."/Bohus_snap.jpg")
+log.message("Snap saved!")
+
+
+
+end

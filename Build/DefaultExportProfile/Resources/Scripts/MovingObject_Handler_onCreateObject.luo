@@ -1,0 +1,14 @@
+
+
+
+
+
+
+
+function MovingObject.onCreateObject()
+
+
+this.CreateObject()
+
+
+end

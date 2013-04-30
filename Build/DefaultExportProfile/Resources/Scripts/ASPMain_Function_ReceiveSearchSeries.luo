@@ -1,0 +1,21 @@
+
+
+
+
+
+
+
+function ASPMain.ReceiveSearchSeries(hComponent)
+
+for i=0,15 do
+
+hud.addListItem(hud.getComponent(this.getUser(),"controls.SeriesResult"),"Serie :"..i)
+
+end
+
+
+hud.callAction(this.getUser(),"controls.ShowSeriesResults")
+
+
+
+end

@@ -1,0 +1,17 @@
+
+
+
+
+
+
+
+function DesignerPlugin_Main.LoadThumbnailForArticleNumber(sArticleNumber)
+
+
+this.sCurrentArticleNumber(sArticleNumber)
+
+this.GetPaletteItem()
+
+
+
+end

@@ -1,0 +1,14 @@
+
+
+
+
+
+
+
+function DesignerPlugin_Main.onLogToWeb(sLogStatement)
+
+
+this.LogToWeb(sLogStatement)
+
+
+end

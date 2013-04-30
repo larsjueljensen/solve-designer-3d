@@ -1,0 +1,270 @@
+
+
+
+
+
+
+
+function CursorControlller.onMouseButtonUp(nButton,nPointX,nPointY,nRayPntX,nRayPntY,nRayPntZ,nRayDirX,nRayDirY,nRayDirZ)
+
+local hUser=application.getCurrentUser()
+local hScene=application.getCurrentUserScene()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+local hUnderCursorComponent=hud.getUnderCursorComponent(hUser)
+
+this.bThumbzone(false)
+user.sendEvent(hUser,"SliderEvents","onArrowRight","MySlider",false)
+user.sendEvent(hUser,"SliderEvents","onArrowLeft","MySlider",false)
+
+if hUnderCursorComponent then
+
+
+if(hud.getComponentType(hUnderCursorComponent)==hud.kComponentTypeButton)then
+elseif(hud.getComponentType(hUnderCursorComponent)==hud.kComponentTypeContainer)then
+end
+
+else
+
+local hHitObject,nHitDist,nHitID=scene.getFirstHitSensor(hScene,nRayPntX,nRayPntY,nRayPntZ,nRayDirX,nRayDirY,nRayDirZ,3500)
+
+
+if hHitObject then
+log.message("Mouse up hHitObject: ",hHitObject)
+this.hObjectHit(hHitObject)
+
+local sHitTag=scene.getObjectTag(hScene,hHitObject)
+
+log.message("In Scene: ",sHitTag)
+
+if string.compare("Floor",sHitTag)==0 then
+
+this.CursorState(0)
+log.message("Hit floor")
+
+elseif string.compare("Wall1",sHitTag)==0 then
+
+this.CursorState(2)
+log.message("Hit wall Front")
+
+elseif string.compare("Wall2",sHitTag)==0 then
+
+this.CursorState(1)
+log.message("Hit wall left")
+
+elseif string.compare("Wall3",sHitTag)==0 then
+
+this.CursorState(3)
+log.message("Hit wall right")
+
+else
+
+this.CursorState(4)
+log.message("Hit 3d object")
+
+
+
+
+end
+
+
+
+
+
+
+end
+
+local nState=this.CursorState()
+local bSelection=user.getAIVariable(this.getUser(),"MovingObject","bListSelection")
+
+log.message("Sending CursorState: ",this.CursorState())
+log.message(user.getAIVariable(this.getUser(),"MovingObject","bListSelection"))
+if nState==0 then
+if bSelection==true
+then
+user.sendEventImmediate(this.getUser(),"MovingObject","onSetObject",nState)
+end
+
+elseif nState==1 then
+
+if bSelection==true
+then
+user.sendEventImmediate(this.getUser(),"MovingObject","onSetObject",nState)
+end
+
+elseif nState==2 then
+
+
+if bSelection==true
+then
+user.sendEventImmediate(this.getUser(),"MovingObject","onSetObject",nState,this.TopNode(),nPointX)
+end
+
+
+elseif nState==3 then
+
+if bSelection==true
+then
+user.sendEventImmediate(this.getUser(),"MovingObject","onSetObject",nState,this.TopNode())
+end
+
+elseif nState==4 then
+
+if bSelection==true
+then
+user.sendEventImmediate(this.getUser(),"MovingObject","onSetObject",nState,this.TopNode())
+end
+
+
+end
+
+this.CursorState(0)
+
+end
+
+
+
+user.setAIVariable(hUser,"ASPMain","bWheelUsed",false)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end

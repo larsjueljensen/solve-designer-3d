@@ -1,0 +1,20 @@
+
+
+
+
+
+
+
+function ObjectAI.onObjectSelected(hObj)
+
+
+
+
+
+
+log.message("Received Object: ",hObj)
+this.hMovingObject(hObj)
+this.bIsMovingObject(true)
+
+
+end

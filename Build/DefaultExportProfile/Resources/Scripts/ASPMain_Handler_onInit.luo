@@ -1,0 +1,34 @@
+
+
+
+
+
+
+
+function ASPMain.onInit()
+
+
+application.setCurrentUserScene("BohusScene")
+
+
+local hUser=application.getCurrentUser()
+
+
+
+
+application.setOption(application.kOptionTexturesQuality,2)
+this.Preload()
+
+
+hud.newTemplateInstance(hUser,"Bohus_main","main")
+
+
+object.setAIVariable(application.getCurrentUserActiveCamera(),"ASPCamera","bIs3dCamera",true)
+
+
+
+this.LogToWeb("ASPMain")
+system.openURL("javascript:onPluginStarted();",'')
+
+
+end

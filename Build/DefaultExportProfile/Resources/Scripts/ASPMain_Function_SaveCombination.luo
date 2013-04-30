@@ -1,0 +1,23 @@
+
+
+
+
+
+
+
+function ASPMain.SaveCombination(sCombination)
+
+
+
+log.message("function ASPMain.SaveCombination ( sCombination ); ",sCombination)
+
+
+
+
+this.GetSceneState()
+
+
+
+
+
+end

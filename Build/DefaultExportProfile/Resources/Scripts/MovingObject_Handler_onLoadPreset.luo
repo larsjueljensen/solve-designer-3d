@@ -1,0 +1,16 @@
+
+
+
+
+
+
+
+function MovingObject.onLoadPreset(nArtNr)
+
+
+this.LoadPreset2(nArtNr)
+
+
+
+
+end

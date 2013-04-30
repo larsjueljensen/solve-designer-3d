@@ -1,0 +1,15 @@
+
+
+
+
+
+
+
+function DesignerPlugin_Main.onStartup(urlBase,queryString)
+
+
+this.URLbase(urlBase)
+this.commonQueryString(queryString)
+
+
+end

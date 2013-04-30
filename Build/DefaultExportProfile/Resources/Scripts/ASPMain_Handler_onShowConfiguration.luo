@@ -1,0 +1,20 @@
+
+
+
+
+
+
+
+function ASPMain.onShowConfiguration()
+
+
+
+
+
+
+user.sendEvent(this.getUser(),"aspmenu_AI","onPopulateModules")
+
+hud.callAction(this.getUser(),"MoveObjectHUD.ModulesWndShow")
+
+
+end

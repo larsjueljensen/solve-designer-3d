@@ -1,0 +1,16 @@
+
+
+
+
+
+
+
+function DesignerPlugin_Main.onSetWardobe(id)
+
+
+this.LogToWeb("onSetWardobe: ")
+
+
+
+
+end

@@ -1,0 +1,17 @@
+
+
+
+
+
+
+
+function ASPMain.onQuit()
+
+
+
+log.message("onQuit")
+
+application.quit()
+
+
+end

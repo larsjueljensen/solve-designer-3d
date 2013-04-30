@@ -1,0 +1,25 @@
+
+
+
+
+
+
+
+function MovingObject.UpdateStatus(hObject)
+
+
+local hUser=application.getCurrentUser()
+
+log.message("UPDATE: ",hUser)
+
+
+
+
+
+
+
+
+
+
+
+end

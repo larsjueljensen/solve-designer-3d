@@ -1,0 +1,23 @@
+
+
+
+
+
+
+
+function DesignerPlugin_Main.onShowFronts(bState)
+
+this.LogToWeb("onShowFronts: ")
+if bState==true then
+
+
+
+
+else
+
+
+
+end
+
+
+end

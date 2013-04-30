@@ -1,0 +1,21 @@
+
+
+
+
+
+
+
+function DesignerPlugin_Main.onAddArticle(sID,sArticleNumber)
+
+
+log.message("onAddArticle: "..sID)
+this.LogToWeb("onAddArticle: "..sID)
+
+
+
+log.message("movingobject_sArticleAdded = ",sArticleNumber)
+this.ArticleAdded(sID,sArticleNumber)
+
+
+
+end

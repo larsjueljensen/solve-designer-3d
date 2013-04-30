@@ -1,0 +1,20 @@
+
+
+
+
+
+
+
+function ASPMain.ObjectDeselected()
+
+
+
+
+log.message("Object deselected")
+
+local hObject=user.getAIVariable(application.getCurrentUser(),"MovingObject","hPreviousObject")
+
+log.message("Object deselected ",hObject)
+
+
+end

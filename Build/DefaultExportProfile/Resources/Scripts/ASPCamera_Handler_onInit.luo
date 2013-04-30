@@ -1,0 +1,18 @@
+
+
+
+
+
+
+
+function ASPCamera.onInit()
+
+
+this.computeSceneBSphere()
+
+this.sendEvent("onReset")
+
+
+
+
+end

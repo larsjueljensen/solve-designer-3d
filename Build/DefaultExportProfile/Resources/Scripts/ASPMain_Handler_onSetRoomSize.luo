@@ -1,0 +1,19 @@
+
+
+
+
+
+
+
+function ASPMain.onSetRoomSize(nLength,nWidth)
+
+
+this.RoomDefaultLength(nLength)
+this.RoomDefaultWidth(nWidth)
+
+this.CreateRoom(1)
+
+
+
+
+end

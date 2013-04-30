@@ -1,0 +1,180 @@
+
+
+
+
+
+
+
+function MovingObject.SetModel(nState,hParent,nPointX)
+
+local hScene=application.getCurrentUserScene()
+local hUser=this.getUser()
+local hTarget=scene.getTaggedObject(application.getCurrentUserScene(),"target")
+
+local nTx,nTy,nTz=object.getTranslation(hTarget,object.kGlobalSpace)
+
+
+
+
+local hFloor=scene.getTaggedObject(application.getCurrentUserScene(),"Floor")
+local x1,y1,z1=object.getBoundingBoxMin(hFloor)
+local x2,y2,z2=object.getBoundingBoxMax(hFloor)
+
+local x3,y3,z3=object.getBoundingBoxMin(this.hNewObject())
+local x4,y4,z4=object.getBoundingBoxMax(this.hNewObject())
+
+local nObjOffset=(x4-x3)/2
+local nObjOffsetZ=(z4-z3)/2
+local hNewObj=this.hNewObject()
+
+
+
+log.message("SetObject, nState = ",nState)
+
+if nState==1 then
+
+log.message("NewObject on wall Right: ",this.hNewObject())
+
+local bIsCorner=string.compare(object.getModelName(this.hNewObject()),"3371520")
+log.message("String compare returned: ",bIsCorner)
+local sName=object.getModelName(this.hNewObject())
+local bIsCorner=string.compare(sName,"3371520")
+
+if bIsCorner==0 then
+
+if nPointX>0 then
+
+
+object.setTranslation(this.hNewObject(),x2-nObjOffset+1,0,nTz,object.kGlobalSpace)
+
+elseif nPointX<=0 then
+object.setTranslation(this.hNewObject(),nTx-nObjOffsetZ+1,0,nTz,object.kGlobalSpace)
+object.setRotation(this.hNewObject(),0,0,0,object.kGlobalSpace)
+
+
+
+
+object.setTranslation(this.hNewObject(),x1+nObjOffsetZ-1,0,nTz+5.5,object.kGlobalSpace)
+end
+else
+
+object.setTranslation(this.hNewObject(),nTx,0,nTz+2.5,object.kGlobalSpace)
+
+
+end
+
+
+object.setTranslation(this.hNewObject(),nTx-nObjOffsetZ+2,0,nTz,object.kGlobalSpace)
+object.setRotation(this.hNewObject(),0,-90,0,object.kGlobalSpace)
+
+
+
+object.setVisible(this.hNewObject(),true)
+
+
+
+user.setAIVariable(this.getUser(),"CursorController","CursorState",0)
+
+
+
+elseif nState==2 then
+
+log.message("NewObject: ",this.hNewObject())
+
+log.message(object.getModelName(this.hNewObject()))
+local sName=object.getModelName(this.hNewObject())
+
+local bIsCorner=string.compare(sName,"3371520")
+
+log.message("String compare returned: ",bIsCorner)
+
+if bIsCorner==0 then
+
+if nPointX>0 then
+
+
+object.setTranslation(this.hNewObject(),x2-nObjOffset+1,0,nTz+5.5,object.kGlobalSpace)
+
+elseif nPointX<=0 then
+
+
+object.setRotation(this.hNewObject(),0,90,0,object.kGlobalSpace)
+object.setTranslation(this.hNewObject(),x1+nObjOffsetZ-1,0,nTz+5.5,object.kGlobalSpace)
+end
+else
+
+object.setTranslation(this.hNewObject(),nTx,0,nTz+2.5,object.kGlobalSpace)
+
+
+end
+
+object.setVisible(this.hNewObject(),true)
+
+
+
+user.setAIVariable(this.getUser(),"CursorController","CursorState",0)
+
+
+
+elseif nState==3 then
+
+log.message("Place object on right wall")
+elseif nState==4 then
+
+log.message("Place object in  cabinet")
+
+
+
+
+log.message("Got topnode ",hParent)
+
+
+local xP,yP,zP=object.getTranslation(hParent,object.kGlobalSpace)
+local xB,yB,zB=object.getBoundingSphereCenter(hParent)
+local xMin,yMin,zMin=object.getBoundingBoxMin(hParent)
+local xMax,yMax,zMax=object.getBoundingBoxMax(hParent)
+
+local xParentObj=xMin+(xMax-xMin)/2
+local yParentObj=yMin+(yMax-yMin)/2
+local zParentObj=zMin+(zMax-zMin)/2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+local xObj,yObj,zObj=object.getTranslation(hNewObj,object.kGlobalSpace)
+local xBObj,yBObj,zBObj=object.getBoundingSphereCenter(hNewObj)
+local xMinObj,yMinObj,zMinObj=object.getBoundingBoxMin(hNewObj)
+local xMaxObj,yMaxObj,zMaxObj=object.getBoundingBoxMax(hNewObj)
+
+
+
+
+object.setTranslation(this.hNewObject(),xParentObj,nTy,zParentObj,object.kGlobalSpace)
+object.setVisible(this.hNewObject(),true)
+object.setParent(hNewObj,hParent,true)
+
+
+
+
+elseif nState==5 then
+
+this.DestroyObject()
+
+end
+
+
+local sTag=scene.getObjectTag(hScene,this.hNewObject())
+user.sendEvent(hUser,"DesignerPlugin_Main","onAddArticle",sTag,this.sAddedArticle())
+
+
+end

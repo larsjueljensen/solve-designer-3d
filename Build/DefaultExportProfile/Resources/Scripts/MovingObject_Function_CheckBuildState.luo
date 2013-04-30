@@ -1,0 +1,18 @@
+
+
+
+
+
+
+
+function MovingObject.CheckBuildState(x,y,z)
+
+
+local hUser=application.getCurrentUser()
+local nState=user.getAIVariable(hUser,"CursorController","CursorState")
+
+log.message("Check build state: ",nState)
+this.SetModel(x,y,z)
+
+
+end

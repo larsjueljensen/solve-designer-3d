@@ -1,0 +1,29 @@
+
+
+
+
+
+
+
+function MovingObject.TargetVisible_onEnter()
+
+if this.TargetIsVisible()==true then
+
+
+local hObject=scene.getTaggedObject(application.getCurrentUserScene(),"target")
+
+
+
+
+
+hud.setComponentVisible(hud.getComponent(this.getUser(),"main.CursorThumb"),true)
+
+else
+
+
+end
+
+
+
+
+end

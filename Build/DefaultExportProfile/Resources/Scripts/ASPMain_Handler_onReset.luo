@@ -1,0 +1,20 @@
+
+
+
+
+
+
+
+function ASPMain.onReset()
+
+
+object.sendEvent(application.getCurrentUserActiveCamera(),"ASPCamera","onReset")
+
+this.bTopViewMode(false)
+
+
+
+
+
+
+end

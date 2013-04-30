@@ -1,0 +1,16 @@
+
+
+
+
+
+
+
+function DesignerPlugin_Main.ArticleRemoved(sArticleID)
+
+
+local sArticleInfo=xml.toString(hashtable.get(this.htArticleCache(),sArticleID))
+this.LogToWeb("ArticleRemoved - "..sArticleInfo)
+
+
+
+end

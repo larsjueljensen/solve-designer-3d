@@ -1,0 +1,15 @@
+
+
+
+
+
+
+
+function ObjectAI.ObjectPlaced()
+
+
+user.sendEvent(application.getCurrentUser(),"MovingObject","onMouseButtonUp")
+
+
+
+end

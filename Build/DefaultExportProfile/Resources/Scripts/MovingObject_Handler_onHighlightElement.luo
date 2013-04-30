@@ -1,0 +1,15 @@
+
+
+
+
+
+
+
+function MovingObject.onHighlightElement(n)
+
+
+
+this.HighLightDialogElement(n)
+
+
+end

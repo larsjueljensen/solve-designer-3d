@@ -1,0 +1,30 @@
+
+
+
+
+
+
+
+function DesignerPlugin_Main.CreateItemsFromXML()
+
+
+local sXML=this.PaletteItemsXML()
+
+this.LogToWeb("CreatePaletteItemsFromXML: "..sXML)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+end

@@ -1,0 +1,15 @@
+
+
+
+
+
+
+
+function Slider.LogToWeb(sLogStatement)
+
+
+system.openURL('javascript:onPluginLog("'..sLogStatement..'");','')
+
+
+
+end

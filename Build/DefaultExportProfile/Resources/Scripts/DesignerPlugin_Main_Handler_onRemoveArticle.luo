@@ -1,0 +1,15 @@
+
+
+
+
+
+
+
+function DesignerPlugin_Main.onRemoveArticle(nArtNr)
+
+
+this.ArticleRemoved(nArtNr)
+
+
+
+end

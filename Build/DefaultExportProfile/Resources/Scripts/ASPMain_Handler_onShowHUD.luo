@@ -1,0 +1,16 @@
+
+
+
+
+
+
+
+function ASPMain.onShowHUD()
+
+
+hud.newTemplateInstance(this.getUser(),"Bohus_main","main")
+hud.setComponentVisible(hud.getComponent(this.getUser(),"Slider.LowMenuHolder"),true)
+
+
+
+end

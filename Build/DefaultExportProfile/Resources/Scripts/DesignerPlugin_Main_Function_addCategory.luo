@@ -1,0 +1,13 @@
+
+
+
+
+
+
+
+function DesignerPlugin_Main.addCategory()
+
+this.LogToWeb("addCategory")
+
+
+end
