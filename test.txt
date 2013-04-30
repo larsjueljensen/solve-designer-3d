@@ -1,2 +1,4 @@
 Checking that github works...
 Checking that collaboration is possible..
+
+Showing how git update and commit works..
