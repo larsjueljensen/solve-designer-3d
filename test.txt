@@ -4,5 +4,3 @@ Checking that collaboration is possible..
 Showing how git fetch,update, push and commit works..
 
 almost done testing...
-Wondering if my collaborator has changed anything in this file.
-
