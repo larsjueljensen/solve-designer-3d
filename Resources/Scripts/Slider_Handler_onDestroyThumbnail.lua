@@ -5,12 +5,9 @@
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function Slider.onDestroyThumbnail (  )
+function Slider.onDestroyThumbnail ( sArticleNumber )
 --------------------------------------------------------------------------------
-	--log.message ( "Clear Categories" )
-    user.sendEvent ( application.getCurrentUser ( ), "DesignerPlugin_Main", "onLogToWeb", ( "onRemoveThumbnail: " ))
-
-    this.RemoveThumbnail ( )	
+    this.RemoveThumbnail ( sArticleNumber)	
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------

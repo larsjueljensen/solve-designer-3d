@@ -7,9 +7,8 @@
 --------------------------------------------------------------------------------
 function DesignerPlugin_Main.GetArticleNumberFromElement ( hElement )
 --------------------------------------------------------------------------------
-	
-    local sArticleNumber = xml.getElementValue (  xml.getElementFirstChildWithName ( hElement, "articleNumber" ) )
-    return sArticleNumber
+    
+    return xml.getElementValue (  xml.getElementFirstChildWithName ( hElement, "articleNumber" ) )
     
 --------------------------------------------------------------------------------
 end

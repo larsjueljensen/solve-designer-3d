@@ -13,12 +13,11 @@ function Slider.CreateThumbnail ( nPosition, sTextureName )
     local nAttributeID = this.nSliderMode( )
 	local hThumbnail_Container = hud.getComponent ( application.getCurrentUser ( ), this.sSliderName ( )..".Thumbnail_Container" )
    
-    local hThumbnail = hud.newComponent ( application.getCurrentUser ( ), hud.kComponentTypeButton, this.sSliderName ( )..".Thumbnail0"..nPosition )    
+    local hThumbnail = hud.newComponent ( application.getCurrentUser ( ), hud.kComponentTypeButton, this.sSliderName ( )..".Thumbnail"..nPosition )
     
-    local hInfo = hud.newComponent ( application.getCurrentUser ( ), hud.kComponentTypeButton, this.sSliderName ( )..".ThumbnailInfo"..nPosition )    
+    local hInfo = hud.newComponent ( application.getCurrentUser ( ), hud.kComponentTypeButton, this.sSliderName ( )..".ThumbnailInfo"..nPosition )
     
     local nAttribute = user.getAIVariable ( hUser, "ASPMain", "nSliderMode" )
-    
      
    
     if ( hThumbnail_Container and hThumbnail ) 

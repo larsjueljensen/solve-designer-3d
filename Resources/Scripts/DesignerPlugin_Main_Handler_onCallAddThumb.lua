@@ -10,7 +10,7 @@ function DesignerPlugin_Main.onCallAddThumb (  )
 	
 	local hSlider = user.getAIVariable ( application.getCurrentUser ( ), "ASPMain", "hSliderObject" )
 	--log.message ( "onCallAddThumb: ", hSlider )
-    object.sendEvent ( hSlider, "Slider" ,"onAddThumbnail", "117768" )
+    --object.sendEvent ( hSlider, "Slider" ,"onAddThumbnail", "117768" )
     
     
     

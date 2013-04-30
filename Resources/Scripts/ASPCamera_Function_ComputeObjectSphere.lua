@@ -21,7 +21,6 @@ function ASPCamera.ComputeObjectSphere ( hObj )
         --
        
             local o = hObj
-            log.message ( scene.getObjectTag ( s, o) ~= "Plane" )
             if ( o ~= nil )
             then
                 if ( object.isKindOf ( o, object.kTypeShape ) and (scene.getObjectTag ( s, o) ~= "Plane"))

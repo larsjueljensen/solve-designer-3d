@@ -5,123 +5,45 @@
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function Slider.RemoveThumbnail ( )
+function Slider.RemoveThumbnail ( sArticleNumber )
 --------------------------------------------------------------------------------
-	
+	log.message ( "Trying to remove thumbnail with article number "..sArticleNumber )
+
     local hUser = application.getCurrentUser ( )
-	local hThumbnail_Container = hud.getComponent ( application.getCurrentUser ( ), this.sSliderName ( )..".Thumbnail_Container" )
-    --log.message ( "Got container" )
+	local hThumbnailContainer = hud.getComponent ( application.getCurrentUser ( ), this.sSliderName ( )..".Thumbnail_Container" )
     
+    local tObjectsToRemove = table.newInstance ( )
     
-    
-if hThumbnail_Container then
-    local nThumbnails = hud.getContainerChildCount ( hThumbnail_Container )
-    
-    local hComponent
-    local htHashtable = this.aThumbnail ( )
-    local htHashtableInfo = this.aThumbnail1 ( )
-  
-    --local hSlider = hud.getComponent( application.getCurrentUser ( ), "MySlider" )
-    
-    --log.message ( "Removing ", nThumbnails, " thumbnails." )
-    local n = hashtable.getSize ( htHashtable )
-    local nInfo = hashtable.getSize ( htHashtableInfo )
-    
-    
-    for i = 0, n - 1 do
-    
-        local hAction = hud.getAction ( application.getCurrentUser ( ), this.sSliderName ( ).."ThumbnailClickedAction0"..i )
-        local hActionInfo = hud.getAction ( application.getCurrentUser ( ), this.sSliderName ( ).."ThumbnailInfoClickedAction"..i )
-
-        if hAction then
-        --log.warning( "Got button action: ", hAction )
-        hud.destroyAction ( hAction )
+    for i = 0, hud.getContainerChildCount ( hThumbnailContainer ) - 1 do
+        local hThumbNailObject = hud.getContainerChildAt ( hThumbnailContainer, i )
+        if ( string.compare ( hud.getComponentBackgroundImageName ( hThumbNailObject ), sArticleNumber ) ) == 0 then
+            local sTag = hud.getComponentTag ( hThumbNailObject )
+            log.message ( "The thumbnail component tag is: "..sTag )
+            local posTag =  string.replace ( sTag, "Slider.Thumbnail", "" )
+            log.message ( "The position tag is: "..posTag )
+            table.add ( tObjectsToRemove, posTag )
         end
-        
-        if hActionInfo then
-        --log.warning( "Got Infobutton action: ", hActionInfo )
-        hud.destroyAction ( hActionInfo )
-        end
-
-        
-    local sTag = hashtable.getKeyAt ( htHashtable, i )
-    local sTagInfo = hashtable.getKeyAt ( htHashtableInfo, i )
-
-    --local hComponent = hud.getComponent ( hUser, sTag )
-    
-    --log.warning ( "sTag(sKey) = ", sTag )
-    
-    local sValue = hashtable.getAt ( htHashtable, i )
-
-    local sValueInfo = hashtable.getAt ( htHashtableInfo, i )
-
-    --log.warning ( "sValue(value) = ", sValue )
-    
-    local hComponent = hud.getComponent ( hUser, sTag )
-    local hComponentInfo = hud.getComponent ( hUser, sTagInfo )
-
-    --log.warning ( "hComponent = ", hComponent )
-
-    hud.destroyComponent ( hComponent  )
-    hud.destroyComponent ( hComponentInfo )
-    local nCount = hud.getActionCount ( hUser)
-    
-    --log.warning ( "actioncount MySlider =", nCount )
-    
-    
+        i = i + 1
     end
     
-         hashtable.empty ( this.aThumbnail ( ) )
-         hashtable.empty ( this.aThumbnail1 ( ) )
-    
-    --hud.destroyTemplateInstance ( hUser, this.sSliderName ( ) )
-    
-    --hud.getAction (  )
---             if ( hashtable.contains ( htHashtable, sKey ) )
---             then
---                -- If the key is in the hashtable, update the value
---                hashtable.set ( htHashtable, sKey, vValue )
---             else
---                -- If the key is not in the hashtable, create a new entry in the hashtable, with sKey and vValue as key/value for this entry.
---                hashtable.add ( htHashtable, sKey, vValue )
---             end
---     
-    for i = 0, nThumbnails - 1 do
-     hComponent = hud.getContainerChildAt ( hThumbnail_Container, i )
-     
-     --log.warning ( "hComponent = ", hComponent )
-    
-    
+    local sTest = ""
+
+    for i = 0, table.getSize ( tObjectsToRemove ) do
+
+        sTest = table.getAt ( tObjectsToRemove, i )
+
+        local sThumbnailTag = ( this.sSliderName ( )..".Thumbnail"..sTest )
+        local sInfoTag = ( this.sSliderName ( )..".ThumbnailInfo"..sTest )
+        log.message ( "Thumbnail tag: "..sThumbnailTag)
+        log.message ( "nfo tag: "..sInfoTag )
+        local hCurrentThumbnail = hud.getComponent ( application.getCurrentUser ( ), sThumbnailTag )
+        local hInfo = hud.getComponent ( application.getCurrentUser ( ), sInfoTag )
+        log.message ( "Thumbnail handle: ", hCurrentThumbnail )
+        log.message ( "Info handle: ", hInfo )
+        hud.destroyComponent ( hCurrentThumbnail )
+        hud.destroyComponent ( hInfo )
     end
     
---     for i = 0, nThumbnails - 1 do
---     
---     local hComponent = hud.getContainerChildAt ( hThumbnail_Container, i )
---     
---     local hThumbTag = hud.getComponentTag ( hComponent )
---     table.add ( this.htThumbsDeleteTable (  ), hThumbTag )
---     
---     
---     
---     log.warning ( hThumbnail_Container, "  ", hComponent )
---     --log,warning(  )
---     if hComponent then
---     local hThumb = table.getAt ( this.htThumbsDeleteTable ( ), i )
---     local hThumbnail = hud.getComponent ( hUser, hThumb )
---     --hud.destroyComponent ( hThumbnail )
---     
---     
---     nThumbnails = hud.getContainerChildCount ( hThumbnail_Container )
---     
---     
---     log.message ( "Destroyed thumbnail ", i, " ", hThumbnail )
---     log.warning( " thumbnails left to destroy: ", nThumbnails )
---     end
---     end
-     --clean hashtable
-     --hashtable.empty ( this.aThumbnail ( ) )
--- 
-end	
---------------------------------------------------------------------------------
+------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------

@@ -105,27 +105,19 @@ function MovingObject.CreateObject ( hObject, nHitDist, nHitSurfaceID, x, y, z )
            log.message ( "Object has _", nSubsets, "_ subsets" )
                 
                 if nSubsets == 1 then
-                --local sTexture = shape.getMeshSubsetMaterialEffectMap0 ( hObject, i )
-
                 table.insertAt ( hTextures, 3, sTexture )
-               
                 else
                     for i = 0, nSubsets - 1 do
                         local hChildPart = object.getChildAt ( hObject, i )
-                       
                         table.add ( hTextures, sTexture )
                     end 
                 end
                    
             else --Table has existing tetures
-               
-                --table.empty ( hTextures )
                 local nSubsets = shape.getMeshSubsetCount ( hObject )
                 if nSubsets == 1 then
                     local sTexture = table.getAt ( hTextures, 3 )
-                    
                     log.message ( "Got subset texture: ", sTexture )
-                    
                         if sTexture then
                         log.message ( this.hHighlightedObject (  ) )
                         
@@ -198,7 +190,6 @@ function MovingObject.CreateObject ( hObject, nHitDist, nHitSurfaceID, x, y, z )
                         end
                     end
                 end    
-            
             end
         end    
     end

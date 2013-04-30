@@ -9,7 +9,7 @@ function DesignerPlugin_Main.PopulatePaletteWithCategory ( sCategory )
 --------------------------------------------------------------------------------
 
 this.LogToWeb ( "PopulatePaletteWithCategory: "..sCategory )
-this.postEvent ( 0, "onPopulatePalette", sCategory )
+this.postEvent ( 0, "onPopulatePalette", sCategory, true )
 
 
     

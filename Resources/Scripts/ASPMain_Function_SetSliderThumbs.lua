@@ -28,7 +28,6 @@ if tTable ~= nil then
 
     local nThumbs = table.getSize ( this.tCatCombi( ) )
     local hSlider = this.hSliderObject ( )
-    log.message( "Table combo has ", nThumbs, " entries"  )
     for i = 0, nThumbs-1
       do      
       object.sendEvent ( hSlider , "Slider", "onAddThumbnail" )

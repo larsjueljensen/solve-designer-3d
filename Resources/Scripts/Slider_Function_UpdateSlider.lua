@@ -12,14 +12,14 @@ function Slider.UpdateSlider ( )
 	
     for i = 0, this.nPaletteThumbs ( ) - 1
     do
-        local hCurrentThumbnail = hud.getComponent ( application.getCurrentUser ( ), this.sSliderName ( )..".Thumbnail0"..i )
+        local hCurrentThumbnail = hud.getComponent ( application.getCurrentUser ( ), this.sSliderName ( )..".Thumbnail"..i )
         if ( hCurrentThumbnail )
         then
         local hInfo = hud.getComponent ( application.getCurrentUser ( ), this.sSliderName ( )..".ThumbnailInfo"..i )
             local nCurrentPosition = ( ( i - this.nSliderPosition ( ) ) *  ( 20 ) ) + 30 -- / ( nDt*100 ) 
             --log.message ( "Cutrent slider pos = ", nCurrentPosition )
-             if ( ( nCurrentPosition > 0 ) and ( nCurrentPosition < 100 ) )
-            then
+             if ( ( nCurrentPosition > 0 ) and ( nCurrentPosition < 100 ) ) then
+            
                 --hud.setComponentOpacity ( hCurrentThumbnail, 255 * (1 - 0.02 * math.abs ( nCurrentPosition - 50 )) ) --linear fade thumbnail on borders
                 hud.setComponentOpacity ( hCurrentThumbnail, 255 * math.pow (1 - 0.02 * math.abs ( nCurrentPosition - 50 ),1) ) --expo fade thumbnail on borders
                 hud.setComponentVisible ( hCurrentThumbnail, true )
@@ -39,10 +39,13 @@ function Slider.UpdateSlider ( )
                 --
                 if ( ( nCurrentPosition > 40 ) and ( nCurrentPosition < 60 ) )
                 then
-                  hud.setComponentSize ( hCurrentThumbnail,   80, 80)
-
+                hud.setComponentSize ( hCurrentThumbnail,   80, 80)
+                
+                
+                
+                this.updateInfoLabel ( hCurrentThumbnail )
                 else
-                   hud.setComponentSize ( hCurrentThumbnail, 50,50)
+                   hud.setComponentSize ( hCurrentThumbnail, 50,50 )
 
                 end
                 
@@ -50,7 +53,7 @@ function Slider.UpdateSlider ( )
                 --
                 if ( ( nCurrentPosition > 40 ) and ( nCurrentPosition < 60 ) )
                 then
-                  hud.setComponentSize ( hInfo,   20   , 20 ) 
+                  hud.setComponentSize ( hInfo,   20, 20 ) 
 
                 else
                    hud.setComponentSize ( hInfo, 15, 15 ) 

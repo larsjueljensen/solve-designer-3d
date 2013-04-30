@@ -22,7 +22,6 @@ function ASPCamera.computeSceneBSphere ( )
         for i = 0, c - 1
         do
             local o = scene.getObjectAt ( s, i )
-            log.message ( scene.getObjectTag ( s, o) ~= "Plane" )
             if ( o ~= nil )
             then
                 if ( object.isKindOf ( o, object.kTypeShape ) and (scene.getObjectTag ( s, o) ~= "Plane"))

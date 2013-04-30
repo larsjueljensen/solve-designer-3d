@@ -10,7 +10,7 @@ function DesignerPlugin_Main.onTest (  )
 	local hScene = application.getCurrentUserScene ( )
     
     local  sArticleNumber = "fabric16"
-    this.LogToWeb ( "onPutMoneyOnWall "..sArticleNumber  )
+    --this.LogToWeb ( "onPutMoneyOnWall "..sArticleNumber  )
     
     local sFilename = sArticleNumber--..".jpg"
 	local hWall = scene.getTaggedObject ( application.getCurrentUserScene ( ), "Wall1" )

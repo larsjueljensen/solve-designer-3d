@@ -19,11 +19,12 @@ function Slider.onEnterFrame (  )
     --log.message ("nMode = ", nMode )
     
     --log.message ( nMode )
+   --log.message ( hashtable.getSize ( htPalette ) )
    
    if (this.nSliderScrolling ( ) ~= 0) then
-             if (this.nSliderScrolling ( ) == 1) then 
+             if ( this.nSliderScrolling ( ) == 1 ) then 
                 --scroll to the right
-                this.nSliderPosition ( math.min ( hashtable.getSize ( this.aThumbnail ( ) )  - 1 - this.nSliderMargin ( ), 
+                this.nSliderPosition ( math.min ( this.nPaletteThumbs( )  - 1 - this.nSliderMargin ( ), 
                                                   this.nSliderPosition ( ) + this.nScroolingSpeed ( )   ) )
             elseif (this.nSliderScrolling ( ) == -1) then
                 --scroll to the left

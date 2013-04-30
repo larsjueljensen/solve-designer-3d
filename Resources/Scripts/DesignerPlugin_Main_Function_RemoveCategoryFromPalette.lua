@@ -8,27 +8,20 @@
 function DesignerPlugin_Main.RemoveCategoryFromPalette ( sCategory )
 --------------------------------------------------------------------------------
 	
-    local hSlider = scene.getTaggedObject ( application.getCurrentUserScene( ), "Slider" )
-
-    local hPaletteItems = hashtable.get( this.htPaletteCache ( ), sCategory  ) 
-	
-    this.LogToWeb ( "RemoveCategoryFromPalette: "..hPaletteItems )
+    local tArticleNumbers = hashtable.get( this.htPaletteCache ( ), sCategory  ) 
     
-    if hPaletteItems ~= nil
+    if tArticleNumbers ~= nil
     then
-        local nSize = table.getSize ( hPaletteItems )
+        local hSlider = scene.getTaggedObject ( application.getCurrentUserScene( ), "Slider" )
     
-        for i = 0, nSize -1
+        for i = 0, table.getSize ( tArticleNumbers ) -1
         do
-            local hElement = table.getAt ( hPaletteItems, i )
-            this.LogToWeb ( "RemoveCategoryFromPalette :"..hElements )
-            local sArticleNumber = this.GetArticleNumberFromElement ( hElement )
-            this.LogToWeb ( "RemoveCategoryFromPalette: "..hPaletteItems )
-
+            local sArticleNumber = table.getAt ( tArticleNumbers, i )
+            
+            log.message ( "RemoveCategoryFromPalette: ", table.getAt ( tArticleNumbers, i ) )
             object.sendEvent ( hSlider , "Slider", "onDestroyThumbnail", sArticleNumber )
         end
-
-    
+        
     end
     
     

@@ -10,7 +10,7 @@ function ASPMain.TakeSnapshot ( )
 	
 	local hudOk = hud.getComponent ( this.getUser ( ),"main.ButtonFrame1" )
     
-    log.message ( hudOk )       
+    --log.message ( hudOk )       
     
     application.saveCurrentUserViewportToTexture ( "Bohus_snap.jpg", 640, 480 )
 
