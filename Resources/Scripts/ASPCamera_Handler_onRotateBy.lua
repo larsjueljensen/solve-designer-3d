@@ -8,22 +8,16 @@
 function ASPCamera.onRotateBy ( nDeltaX, nDeltaY )
 --------------------------------------------------------------------------------
 	
-    local nDeltaVar = nDeltaX
-    
-    if nDeltaVar >= 24 then
-    nDeltaVar = 20
+    if nDeltaX >= 24 then
+        nDeltaX = 20
     end
     
-    if nDeltaVar <= -24 then
-    nDeltaVar = -20
+    if nDeltaX <= -24 then
+        nDeltaX = -20
     end
 
-	this.nDstAngleX ( this.nDstAngleX ( ) - nDeltaVar * 90 )
+	this.nDstAngleX ( this.nDstAngleX ( ) - nDeltaX * 90 )
     this.nDstAngleY ( this.nDstAngleY ( ) + nDeltaY * 90 )
-    
-    --object.sendEvent (  )
-    
-
 	
 --------------------------------------------------------------------------------
 end

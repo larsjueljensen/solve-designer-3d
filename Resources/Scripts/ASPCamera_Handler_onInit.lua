@@ -8,11 +8,8 @@
 function ASPCamera.onInit (  )
 --------------------------------------------------------------------------------
 	
-    this.computeSceneBSphere ( )
-    
+    this.computeSceneBSphere ( )    
     this.sendEvent ( "onReset" )
-    --this.sendEvent ( "onTopView" )
-    
 	
 --------------------------------------------------------------------------------
 end

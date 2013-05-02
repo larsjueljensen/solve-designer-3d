@@ -13,11 +13,8 @@ function ASPMain.ClearButtonRow ( )
     local nChildren  = hud.getContainerChildCount ( hParent )
     
     for i = 0, nChildren - 1 do
-    
-    local hButton = hud.getContainerChildAt ( hParent, i )
-    hud.setCheckState ( hButton, false )
-    --hud.setComponentBackgroundImage ( hButton, "Btn_glass_off" )
-    
+        local hButton = hud.getContainerChildAt ( hParent, i )
+        hud.setCheckState ( hButton, false )
     end
 	
 --------------------------------------------------------------------------------

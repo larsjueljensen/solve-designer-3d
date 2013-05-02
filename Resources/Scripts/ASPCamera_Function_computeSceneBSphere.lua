@@ -15,7 +15,7 @@ function ASPCamera.computeSceneBSphere ( )
     
     if ( s ~= nil )
     then
-        local c     = scene.getObjectCount ( s )
+        local c = scene.getObjectCount ( s )
        
         -- Compute center
         --

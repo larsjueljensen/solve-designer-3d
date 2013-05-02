@@ -10,10 +10,6 @@ function ASPMain.DestroyRoom ( )
 	local hScene = application.getCurrentUserScene ( )
 	local hRoom = scene.getTaggedObject ( hScene, "User_Room" )
     
-    --log.message ( "CreateRoom :Got handle to null: ", hRoom)
-    
-    
-    
     if hRoom ~= nil then
     
     --destroy room.
