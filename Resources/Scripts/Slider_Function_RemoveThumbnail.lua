@@ -28,7 +28,7 @@ function Slider.RemoveThumbnail ( sArticleNumber )
     
     local sTest = ""
 
-    for i = 0, table.getSize ( tObjectsToRemove ) do
+    for i = 0, table.getSize ( tObjectsToRemove ) - 1  do
 
         sTest = table.getAt ( tObjectsToRemove, i )
 
