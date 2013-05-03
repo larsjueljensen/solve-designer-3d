@@ -19,7 +19,8 @@ function CursorControlller.handleCursorOverPalette ( nPointX )
         user.sendEvent ( hUser, "SliderEvents","onArrowRight", "MySlider", false )
 
     end
-    
+                 
+
     
 --------------------------------------------------------------------------------
 end

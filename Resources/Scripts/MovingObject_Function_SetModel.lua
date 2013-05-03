@@ -25,7 +25,7 @@ function MovingObject.SetModel ( nState, hParent, nPointX  )
     
     local nObjOffset = ( x4 - x3 ) / 2
     local nObjOffsetZ = ( z4 - z3 ) / 2
-    local hNewObj = this.hNewObject()
+    local hNewObj = this.hNewObject( )
     
     
     --get obj dimension

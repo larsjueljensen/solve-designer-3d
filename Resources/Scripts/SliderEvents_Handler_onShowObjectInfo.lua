@@ -30,27 +30,16 @@ function SliderEvents.onShowObjectInfo (  )
     local sSelection = hud.getComponentBackgroundImageName ( hThumbnail )
     log.message ( "Show info for: ", sSelection  )
     
-    local hWindow = hud.getComponent ( hUser, "main.InfoWindow" )
+    local hWindow = hud.getComponent ( hUser, "main.ArticleInfoWindow" )
     
     --Get object text strings by sending request to Solve using GET
     --
     
     --Set window text values.
     --
-    local hHeader = hud.getComponent( hUser, "main.InfoHeader")
-    local hTextHolder_0 = hud.getComponent ( hUser, "main.InfoText_0" )
-    local hTextHolder_1 = hud.getComponent ( hUser, "main.InfoText_1" )
-    
-    hud.setLabelText ( hTextHolder_0, " ........innhold fra Solve" )
-    hud.setLabelText ( hTextHolder_1, " ........mer innhold fra Solve" )
-    hud.setLabelText ( hHeader, "Varenr:"..sSelection )
-    
-    --Set window thumbnail
-    --
-    hud.setComponentBackgroundImage( hud.getComponent( hUser, "main.InfoImage"), sSelection )
-    
     --Show window
     --
+    user.sendEvent ( hUser, "ArticleInfoAI", "onShowArticleInfo", sSelection )
     hud.setComponentVisible ( hWindow, true )
     
     

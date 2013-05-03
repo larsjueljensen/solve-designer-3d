@@ -24,10 +24,12 @@ function MovingObject.CreateObject ( hObject, nHitDist, nHitSurfaceID, x, y, z )
     
     local sArticleNumber = this.sListSelection( )
     
+    log.message ( "Create object from articlenumber: ", sArticleNumber )
+    
     this.sAddedArticle ( sArticleNumber )
     
     local hObject = scene.createRuntimeObject ( hScene, sArticleNumber.."/"..sArticleNumber  )
-    
+    --local hObject = scene.createRuntimeObject ( hScene, sArticleNumber  )    
     log.message ("Creating runtimeObject: ", hObject )
     
     --log.message ( "Selection: ", this.sListSelection( )  )
@@ -48,9 +50,10 @@ function MovingObject.CreateObject ( hObject, nHitDist, nHitSurfaceID, x, y, z )
    
     --get childcount
    
-    local nChildren = object.getChildCount ( hObject )
      
     if hObject then
+        --local nChildren = object.getChildCount ( hObject )
+
         local Ox, Oy, Oz = object.getTranslation ( hObject, object.kGlobalSpace )
         object.addAIModel ( hObject, "SliderTarget" )
         local nSceneModelCount  = nSceneModelCount + 1
@@ -149,10 +152,15 @@ function MovingObject.CreateObject ( hObject, nHitDist, nHitSurfaceID, x, y, z )
     --Set all sensor categories.
     --
     local nType
+    log.message ( "Created Object :", hObject )
+    
     local nNumberOfChildren = object.getChildCount ( hObject )
-    local hChild
     for i = 0, nNumberOfChildren -1
-        do
+        do    
+        local hChild = object.getChildAt ( hObject, i )
+
+            shape.setMeshMaterial ( hChild, "white" )
+
             local bHasSensor = object.isKindOf ( hObject, object.kTypeSensor )
             log.message ( "bHasSensor: ", bHasSensor )
             if bHasSensor == true 
@@ -164,7 +172,9 @@ function MovingObject.CreateObject ( hObject, nHitDist, nHitSurfaceID, x, y, z )
             do
             hChild = object.getChildAt ( hObject, i )
                 if hChild ~= nil 
-                then
+                then 
+                shape.setMeshMaterial ( hChild, "white" )
+
                 bHasSensor = object.isKindOf ( hChild, object.kTypeSensor )
                     if bHasSensor == true 
                     then
@@ -177,14 +187,13 @@ function MovingObject.CreateObject ( hObject, nHitDist, nHitSurfaceID, x, y, z )
                         local hChild2 = object.getChildAt ( hChild, u )
                             if hChild2 ~= nil then
                             bHasSensor = object.isKindOf ( hChild2, object.kTypeSensor )
-                            
+                                shape.setMeshMaterial ( hChild2, "white" )
                                 if bHasSensor == true 
                                 then
                                     sensor.setCategoryBitAt ( hChild2, 0, 4, true )
-                                    
                                     --object.addAIModel ( hChild2, "ObjectAI" )
                                 else
-                                    nNumberOfChildren = object.getChildCount( hChild )
+                                    --nNumberOfChildren = object.getChildCount( hChild )
                                 end
                             end
                         end
