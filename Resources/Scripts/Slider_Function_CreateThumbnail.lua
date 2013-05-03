@@ -76,7 +76,6 @@ function Slider.CreateThumbnail ( nPosition, sTextureName )
             hud.endActionCommand            ( hThumbnailClickedAction )          
             hud.setButtonOnClickAction    ( hThumbnail, hThumbnailClickedAction )
         end
-        --hashtable.add ( this.aThumbnail ( ), this.sSliderName ( )..".Thumbnail0"..nPosition, sTextureName )
         
         --create a new action for info button to show textwindow etc... click on it
         local hThumbnailInfoClickedAction = hud.newAction ( application.getCurrentUser ( ), this.sSliderName ( ).."ThumbnailInfoClickedAction"..nPosition )
@@ -92,19 +91,11 @@ function Slider.CreateThumbnail ( nPosition, sTextureName )
             hud.setButtonOnClickedAction    ( hInfo, hThumbnailInfoClickedAction )
         end
         
-        --hashtable.add ( this.aThumbnail1 ( ), this.sSliderName ( )..".ThumbnailInfo"..nPosition, sTextureName )
-
     end
     
-
-    --hashtable.add ( this.aThumbnail ( ), this.sSliderName ( )..".Thumbnail0"..nPosition, sTextureName )
     this.nPaletteThumbs ( nPosition + 1 ) 
     this.UpdateSlider ( )
     
-    
-    
-    
-	
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------

@@ -27,20 +27,20 @@ function CursorControlller.onMouseMove ( nPointX, nPointY, nDeltaX, nDeltaY, nRa
     local hUnderCursorComponent = hud.getUnderCursorComponent ( hUser )
     
 
-    if hUnderCursorComponent then
+    if not hUnderCursorComponent then
  
-    else 
-
         this.sceneMouseMove ( application.getCurrentUserScene ( ), nPointX, nPointY, nDeltaX, nDeltaY, nRayPntX, nRayPntY, nRayPntZ, nRayDirX, nRayDirY, nRayDirZ )
     
     end
     
-    if nPointY <= -0.45 and nPointY >= -0.90 then
+    if nPointY <= -0.5 and nPointY >= -0.90 then
     
         this.handleCursorOverPalette( nPointX )
-        local CursorPos = user.setAIVariable ( this.getUser ( ), "Slider", "CursorPos, ", nPointX )                
+        user.setAIVariable ( this.getUser ( ), "Slider", "CursorPos", nPointX )                
     else
-        this.setSliderColor ( 127, 127, 127, 255 )
+        log.message ( "PALETTE SCROLLING OFF" )
+        --user.setAIVariable ( this.getUser ( ), "Slider", "nSliderScrolling", 0 )
+        user.sendEvent ( hUser, "SliderEvents", "onArrowLeft", "MySlider", false )
     end
 
     

@@ -8,3 +8,5 @@ Resources/Textures/Thumbnails/DefaultFoam.tga
 Resources/Textures/Thumbnails/DefaultFont.tga
 Resources/Textures/Thumbnails/DefaultSoftReflection.tga
 Resources/Textures/Thumbnails/wallpaper_texture.tga
+*.bak
+
