@@ -1,14 +1,23 @@
 --------------------------------------------------------------------------------
---  Handler.......... : onClearCategories
+--  Handler.......... : onClearThumbnails
 --  Author........... : 
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function DesignerPlugin_Main.onClearCategories (  )
+function Slider.onClearThumbnails (  )
 --------------------------------------------------------------------------------
-	local hSlider = scene.getTaggedObject ( application.getCurrentUserScene( ), "Slider" )
-    object.sendEvent ( hSlider, "Slider", "onClearThumbnails" )
+	
+    local hThumbnailContainer = this.getComponent ( "Thumbnail_Container" ) 
+    local nThumbnails = hud.getContainerChildCount ( hThumbnailContainer )
+    
+    for i = 0, nThumbnails - 1
+    do
+        hud.destroyComponent ( hud.getContainerChildAt( hThumbnailContainer, 0 ) )
+    end
+    
+    this.nPaletteThumbs ( 0 )
+	
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------
