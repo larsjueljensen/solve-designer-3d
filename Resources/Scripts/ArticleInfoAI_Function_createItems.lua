@@ -10,7 +10,7 @@ function ArticleInfoAI.createItems ( )
 	log.message ( "Create article info items" )
     
     local hUser = this.getUser ( )
-	local hHolder = hud.getComponent( hUser, "main.ArticleInfoWindow")
+	local hHolder = hud.getComponent( hUser, "main.ArticleInfo")
     
     local nLine = 7
     local nPosY = 85
@@ -18,50 +18,43 @@ function ArticleInfoAI.createItems ( )
     
     for i = 0, nLine -1 do
     
-    
-    local hLabel = hud.newComponent( hUser, hud.kComponentTypeLabel, "main.label_"..i)
-    local hData = hud.newComponent( hUser, hud.kComponentTypeLabel, "data_"..i )
-    local hUnit = hud.newComponent( hUser, hud.kComponentTypeLabel, "unit_"..i )
-    
-    
+        local hLabel = hud.newComponent( hUser, hud.kComponentTypeLabel, "main.label_"..i)
+        local hData = hud.newComponent( hUser, hud.kComponentTypeLabel, "main.data_"..i )
 
-    hud.setComponentPosition( hLabel, 10, nPosY )
-    hud.setComponentPosition( hData, 53, nPosY )
-    hud.setComponentPosition( hUnit, 85, nPosY )
-    
-    hud.setComponentSize ( hLabel, 40, 7 )
-    hud.setComponentSize ( hData, 30, 7 )
-    hud.setComponentSize ( hUnit, 12, 7 )
+        hud.setComponentPosition( hLabel, 10, nPosY )
+        hud.setComponentPosition( hData, 53, nPosY )
+        
+        hud.setComponentSize ( hLabel, 40, 7 )
+        hud.setComponentSize ( hData,40, 7 )
 
---for all    
-    hud.setComponentContainer( hLabel, hHolder ) 
-    hud.setComponentContainer( hData, hHolder )
-    hud.setComponentContainer( hUnit, hHolder )
-    
-    hud.setComponentOrigin ( hLabel, hud.kOriginLeft )
-    hud.setComponentOrigin ( hData, hud.kOriginLeft )
-    hud.setComponentOrigin ( hUnit, hud.kOriginLeft )
-    
+        hud.setComponentContainer( hLabel, hHolder ) 
+        hud.setComponentContainer( hData, hHolder )
+        
+        hud.setComponentOrigin ( hLabel, hud.kOriginLeft )
+        hud.setComponentOrigin ( hData, hud.kOriginLeft )
+        
 
-    hud.setComponentZOrder ( hLabel, 130 )
-    hud.setComponentZOrder ( hData, 130 )
-    hud.setComponentZOrder ( hUnit, 130 )
-    
-    hud.setComponentBackgroundColor ( hLabel, 127, 127, 0, 255 )
-    hud.setComponentBackgroundColor ( hData, 0, 127, 0, 255 )
-    hud.setComponentBackgroundColor ( hUnit, 127, 0, 0, 255 )
-    
-    hud.setComponentForegroundColor ( hLabel, 0, 0, 0, 255 )
-    hud.setComponentForegroundColor ( hData, 0, 0, 0, 255 )
-    hud.setComponentForegroundColor ( hUnit, 0, 0, 0, 255 )
---   
-    hud.setLabelFont (hLabel, "DefaultFont" )
-    hud.setLabelFont (hUnit, "DefaultFont" )
-    hud.setLabelTextHeight ( hLabel, 95 )
-    
-    hud.setLabelText( hUnit, "cm")
-    
-    nPosY = nPosY - 8
+        hud.setComponentZOrder ( hLabel, 130 )
+        hud.setComponentZOrder ( hData, 130 )
+        
+        hud.setComponentBackgroundColor ( hLabel, 127, 127, 127, 0 )
+        hud.setComponentBackgroundColor ( hData, 0, 127, 0, 0 )
+        
+        hud.setComponentForegroundColor ( hLabel, 0, 0, 0, 255 )
+        hud.setComponentForegroundColor ( hData, 0, 0, 0, 255 )
+        
+        hud.setComponentBorderColor ( hLabel, 0, 0, 0, 0 )
+        hud.setComponentBorderColor ( hData, 0, 0, 0, 0 )
+       
+        hud.setLabelFont (hLabel, "DefaultFont" )
+        hud.setLabelFont (hData, "DefaultFont" )
+        hud.setButtonTextEncoding ( hLabel, hud.kEncodingUTF8 )
+        hud.setButtonTextEncoding ( hData, hud.kEncodingUTF8 )
+        hud.setLabelTextHeight ( hLabel, 60 )
+        hud.setLabelTextHeight ( hData, 60 )
+        
+       
+        nPosY = nPosY - 8
     
     end
     
@@ -84,14 +77,13 @@ function ArticleInfoAI.createItems ( )
     hud.setComponentContainer( hProperties, hHolder ) 
     hud.setComponentOrigin ( hProperties, hud.kOriginCenter )
     hud.setComponentPosition( hProperties, 50, 15 )
-    hud.setComponentSize ( hProperties, 80, 25)
+    hud.setComponentSize ( hProperties, 90, 25)
     hud.setComponentBorderColor ( hProperties, 0, 0, 0, 255 )
     hud.setComponentBackgroundColor ( hProperties, 127, 127, 0, 0 )
     hud.setComponentShapeType ( hProperties, hud.kShapeTypeRoundRectangle )
     hud.setComponentShapeRoundRectangleCornerRadius ( hProperties, 3 )
     
 
-    --set label text.
     
 --------------------------------------------------------------------------------
 end

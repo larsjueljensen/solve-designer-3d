@@ -38,7 +38,7 @@ function CursorControlller.onMouseMove ( nPointX, nPointY, nDeltaX, nDeltaY, nRa
         this.handleCursorOverPalette( nPointX )
         user.setAIVariable ( this.getUser ( ), "Slider", "CursorPos", nPointX )                
     else
-        log.message ( "PALETTE SCROLLING OFF" )
+        --log.message ( "PALETTE SCROLLING OFF" )
         --user.setAIVariable ( this.getUser ( ), "Slider", "nSliderScrolling", 0 )
         user.sendEvent ( hUser, "SliderEvents", "onArrowLeft", "MySlider", false )
     end

@@ -9,8 +9,8 @@ function ArticleInfoAI.onInit (  )
 --------------------------------------------------------------------------------
 	
 	this.createItems ( )
-    this.SetLabelText ( )
-    this.sendEvent ( "onShowArticleInfo" )
+    --this.SetLabelText ( )
+    --this.sendEvent ( "onShowArticleInfo" )
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------

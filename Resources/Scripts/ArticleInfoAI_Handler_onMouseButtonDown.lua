@@ -1,15 +1,18 @@
 --------------------------------------------------------------------------------
---  Handler.......... : onShowArticleInfo
+--  Handler.......... : onMouseButtonDown
 --  Author........... : 
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function ArticleInfoAI.onShowArticleInfo ( sArticleNumber )
+function ArticleInfoAI.onMouseButtonDown ( nButton, nPointX, nPointY, nRayPntX, nRayPntY, nRayPntZ, nRayDirX, nRayDirY, nRayDirZ )
 --------------------------------------------------------------------------------
 	
-	--this.createItems ( )
-	this.PopulateLabelsFromXMLCache( sArticleNumber , 7)
+	--
+	-- Write your code here, using 'this' as current AI instance.
+	-- This handler is called when a mouse button is pressed.
+	--
+	
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------
