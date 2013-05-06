@@ -9,7 +9,7 @@ function Slider.UpdateSlider ( )
 --------------------------------------------------------------------------------
 
 	this.nScroolingSpeed ( ( application.getLastFrameTime() * 2 )  * this.CursorPos ( ) + 0.025 )
-    
+
     local nThumbIndex = 0
     local hThumbContainer = this.getComponent ("Thumbnail_Container")
  
