@@ -54,7 +54,8 @@ function MovingObject.SetModel ( nState, hParent, nPointX  )
                     
                     --object.matchRotation ( this.hNewObject ( ), hTarget, object.kGlobalSpace )
                     --object.setRotation ( this.hNewObject ( ), 0, 90, 0 ,object.kGlobalSpace )
-                    object.setTranslation ( this.hNewObject ( ), x1 + nObjOffsetZ - 1, 0, nTz + 5.5, object.kGlobalSpace )
+                    
+                    --object.setTranslation ( this.hNewObject ( ), x1 + nObjOffsetZ - 1, 0, nTz + 5.5, object.kGlobalSpace )
                     end
                 else
                 

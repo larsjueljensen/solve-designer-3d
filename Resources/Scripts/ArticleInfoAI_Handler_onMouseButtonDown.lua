@@ -8,11 +8,10 @@
 function ArticleInfoAI.onMouseButtonDown ( nButton, nPointX, nPointY, nRayPntX, nRayPntY, nRayPntZ, nRayDirX, nRayDirY, nRayDirZ )
 --------------------------------------------------------------------------------
 	
-	--
-	-- Write your code here, using 'this' as current AI instance.
-	-- This handler is called when a mouse button is pressed.
-	--
-	
+	if hud.getUnderCursorComponent ( this.getUser ( ) ) == nil --close info window if clicked outside infopopup
+    then
+    hud.callAction ( this.getUser ( ), "main.QuitInfoClick" )
+	end
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------

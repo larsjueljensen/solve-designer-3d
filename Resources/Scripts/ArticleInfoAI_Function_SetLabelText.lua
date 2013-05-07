@@ -17,6 +17,7 @@ function ArticleInfoAI.SetLabelText ( sElementName, vValue, nLine)
 
     hud.setLabelText( hLabel, sElementName )
     hud.setLabelText( hData, vValue )
+
 	
 --------------------------------------------------------------------------------
 end
