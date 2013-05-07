@@ -7,10 +7,10 @@
 --------------------------------------------------------------------------------
 function DesignerPlugin_Main.onInit (  )
 --------------------------------------------------------------------------------
-	--user.sendEventImmediate ( this.getUser(), "DesignerPlugin_Main", "onInitSession", "http://localhost:8080/solve-designer3d-customerweb/", "selectedWarehouse=3015&selectedPriceZone=S%C3%B8r" )
-	this.LogToWeb ( "Hallo!" )
 
-
+    application.setOption ( application.kOptionDynamicShadowsQuality, 5 )
+    application.setOption ( application.kOptionTexturesQuality, 2 )
+    application.setOption ( application.kOptionShadersQuality, 2 )
 
 ------------------------------------------------------------------------------
 end

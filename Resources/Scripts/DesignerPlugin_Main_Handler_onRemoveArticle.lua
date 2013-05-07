@@ -5,12 +5,13 @@
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function DesignerPlugin_Main.onRemoveArticle ( nArtNr )
+function DesignerPlugin_Main.onRemoveArticle ( sTag )
 --------------------------------------------------------------------------------
 	
-		this.ArticleRemoved ( nArtNr )
+        this.LogToWeb ( "onRemoveArticle called with tag: "..sTag )
+		log.message ( "onRemoveArticle: ", sTag  )
+        this.ArticleRemoved ( sTag )
 
-	
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------

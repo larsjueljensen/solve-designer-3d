@@ -49,8 +49,6 @@ function ArticleInfoAI.createItems ( )
         hud.setLabelTextEncoding ( hLabel, hud.kEncodingUTF8 )
         hud.setLabelTextEncoding ( hData, hud.kEncodingUTF8 )
         
-        log.message ( sEncoding )
-
         hud.setLabelFont (hLabel, "arial" )
         hud.setLabelFont (hData, "arial" )
         hud.setLabelTextHeight ( hLabel, 50 )

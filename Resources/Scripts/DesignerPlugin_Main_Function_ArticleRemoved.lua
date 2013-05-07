@@ -5,12 +5,11 @@
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function DesignerPlugin_Main.ArticleRemoved ( sArticleID )
+function DesignerPlugin_Main.ArticleRemoved ( sTag )
 --------------------------------------------------------------------------------
 	
-    local sArticleInfo = xml.toString ( hashtable.get( this.htArticleCache ( ), sArticleID ) )
-    this.LogToWeb ( "ArticleRemoved - "..sArticleInfo )
-    --system.openURL ( "javascript:onArticleRemoved("..sArticleInfo..");" )
+    this.LogToWeb ( "ArticleRemoved - "..sTag)
+    system.openURL ( "javascript:onArticleRemoved('"..sTag.."');", "" )
 	
 --------------------------------------------------------------------------------
 end
