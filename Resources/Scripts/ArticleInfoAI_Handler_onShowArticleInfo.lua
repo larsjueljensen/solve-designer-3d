@@ -9,7 +9,9 @@ function ArticleInfoAI.onShowArticleInfo ( sArticleNumber )
 --------------------------------------------------------------------------------
 	
 	--this.createItems ( )
-	this.PopulateLabelsFromXMLCache( sArticleNumber , 7)
+	this.PopulateLabelsFromXMLCache( sArticleNumber , 7 )
+    
+    
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------

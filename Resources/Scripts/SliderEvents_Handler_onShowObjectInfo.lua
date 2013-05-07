@@ -23,8 +23,15 @@ function SliderEvents.onShowObjectInfo (  )
     local sSelection = hud.getComponentBackgroundImageName ( hThumbnail )
     local hWindow = hud.getComponent ( hUser, "main.ArticleInfoWindow" )
     user.sendEvent ( hUser, "ArticleInfoAI", "onShowArticleInfo", sSelection )
-    hud.callAction ( this.getUser ( ), "main.ShowArticleInfo" )
     
+    
+    if this.ArticleInfoIsVisible ( ) == true then
+    hud.callAction ( this.getUser ( ), "main.QuitInfoClick" )
+    this.ArticleInfoIsVisible ( false )
+    else
+    hud.callAction ( this.getUser ( ), "main.ShowArticleInfo" )
+    this.ArticleInfoIsVisible ( true )
+    end
 	
 --------------------------------------------------------------------------------
 end
