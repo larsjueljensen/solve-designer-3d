@@ -36,12 +36,6 @@ function ObjectAI.PlaceNewObject ( nSensorID, hTargetObject, nTargetSensorID )
     local bStatic = sensor.getCategoryBitAt(  hTargetObject, 0 , 1 )
     
     log.message("Place NewObject: ", bStatic )
-
-    
-    --match Target DIrection Vector
-   -- local TargetDirX, TargetDirY, TargetDirZ = object.matchRotation (  hTargetObject, this.getObject ( ),  object.kGlobalSpace )
-    --object.matchRotation (  hTargetObject, this.getObject ( ),  object.kGlobalSpace )
-    
     
     --*******Target************
     
@@ -90,10 +84,6 @@ function ObjectAI.PlaceNewObject ( nSensorID, hTargetObject, nTargetSensorID )
 -- add the scaled vector to the target position to get a point 10 units to the right of
 -- the target object. 
     local newX, newY, newZ = math.vectorAdd ( targetX, targetY, targetZ, xX, xY, xZ )
---     user.sendEventImmediate ( this.getUser ( ), "MovingObject", "onDeselect" )
--- 
-    --object.setTranslation ( hNewObject, newX, newY, newZ, object.kGlobalSpace )
-    
     local nDx, nDy, nDz = object.getDirection ( hTargetObject, object.kGlobalSpace )
     log.message ( "Target object Direction: ", nDx," ", nDy," ", nDz )
     
@@ -125,11 +115,6 @@ if sensor.getCategoryBitAt( hTargetObject, 0, 1 ) == false then --Connect to obj
             log.message ( "Sensorhit pos Q" )
     --         object.setTranslation ( hNewObject, nNewPosX + ( c1x/2) + ( c2x/2 ), nObjPosY, nObjPosZ, object.kGlobalSpace )
             object.setTranslation ( hNewObject, nNewPosX , nObjPosY, nObjPosZ, object.kGlobalSpace )
-            
-            
-            
-            --object.setRotation( this.hMovingObject ( ), xR, nRotation + 90 , zR, object.kGlobalSpace )
-
             user.sendEventImmediate ( hUser, "MovingObject", "onMouseButtonUp" )
             local nCurrentX, nCurrentY, nCurrentZ = object.getRotation ( this.hMovingObject ( ), object.kGlobalSpace )
             
@@ -150,13 +135,11 @@ if sensor.getCategoryBitAt( hTargetObject, 0, 1 ) == false then --Connect to obj
             log.message ( "nCurrentZ: ", nCurrentZ )
 
             user.sendEventImmediate ( hUser, "MovingObject", "onMouseButtonUp" )
-            --object.setRotation( this.hMovingObject ( ), xR, nRotation + 90 , zR, object.kGlobalSpace )
             local Xd, Yd, Zd, nSizeXd, nSizeYd, nSizeZd = this.CalculatePosition (  )
 
 
             object.setTranslation ( hNewObject, nNewPosX , nObjPosY, nNewPosZ + Zd, object.kGlobalSpace )
 
-            --object.setRotation( this.hMovingObject ( ), xR, yR+90, zR, object.kGlobalSpace )
             local hParent = object.getParent( hTargetObject )
             user.sendEventImmediate ( hUser, "MovingObject", "onAddModule", this.hMovingObject ( ), hParent  )
 
@@ -191,12 +174,6 @@ if sensor.getCategoryBitAt( hTargetObject, 0, 1 ) == false then --Connect to obj
             log.message ( "nTy = ", nTy )
             log.message ( "nTz = ", nTz )
             log.message ( "nRotation = ", nRotation )
-            
-
-            
-            
-
-            
             user.sendEventImmediate ( hUser, "MovingObject", "onMouseButtonUp" )
             local nCurrentX, nCurrentY, nCurrentZ = object.getRotation ( this.hMovingObject ( ), object.kGlobalSpace )
             

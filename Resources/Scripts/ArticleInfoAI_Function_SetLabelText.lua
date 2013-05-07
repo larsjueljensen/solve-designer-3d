@@ -14,6 +14,8 @@ function ArticleInfoAI.SetLabelText ( sElementName, vValue, nLine)
    
     hud.setLabelTextAlignment ( hLabel, hud.kAlignLeft, hud.kAlignCenter )
     hud.setLabelTextAlignment ( hData, hud.kAlignRight, hud.kAlignCenter )
+    hud.setLabelTextEncoding ( hLabel, hud.kEncodingUTF8 )
+    hud.setLabelTextEncoding ( hData, hud.kEncodingUTF8 )
 
     hud.setLabelText( hLabel, sElementName )
     hud.setLabelText( hData, vValue )

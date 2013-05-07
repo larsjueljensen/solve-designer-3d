@@ -12,7 +12,6 @@ function MovingObject.SetModel ( nState, hParent, nPointX  )
     local hTarget = scene.getTaggedObject ( application.getCurrentUserScene ( ), "target" )
     
     local nTx, nTy, nTz = object.getTranslation ( hTarget, object.kGlobalSpace )
-        
     local hFloor = scene.getTaggedObject ( application.getCurrentUserScene ( ), "Floor" )
     local x1, y1, z1 = object.getBoundingBoxMin ( hFloor )
     local x2, y2, z2 = object.getBoundingBoxMax ( hFloor )
@@ -53,7 +52,6 @@ function MovingObject.SetModel ( nState, hParent, nPointX  )
         local xParentObj = xMin + ( xMax - xMin ) / 2
         local yParentObj = yMin + ( yMax - yMin ) / 2
         local zParentObj = zMin + ( zMax - zMin ) / 2
-        
         local xObj, yObj, zObj = object.getTranslation( hNewObj, object.kGlobalSpace )
         local xBObj, yBObj, zBObj = object.getBoundingSphereCenter ( hNewObj )
         local xMinObj, yMinObj, zMinObj = object.getBoundingBoxMin ( hNewObj )
@@ -63,13 +61,31 @@ function MovingObject.SetModel ( nState, hParent, nPointX  )
         object.setVisible ( this.hNewObject ( ), true )
         object.setParent ( hNewObj, hParent, true  )
         
+    elseif nState == 3 then
+    
+    elseif nState == 4 then
+    
+    
+    local xP, yP, zP = object.getTranslation( hParent, object.kGlobalSpace )
+    local xB, yB, zB = object.getBoundingSphereCenter ( hParent )
+    local xMin, yMin, zMin = object.getBoundingBoxMin ( hParent )
+    local xMax, yMax, zMax = object.getBoundingBoxMax ( hParent )
+    
+     local xParentObj = xMin + ( xMax - xMin ) / 2
+     local yParentObj = yMin + ( yMax - yMin ) / 2
+     local zParentObj = zMin + ( zMax - zMin ) / 2
+    local xObj, yObj, zObj = object.getTranslation( hNewObj, object.kGlobalSpace )
+    local xBObj, yBObj, zBObj = object.getBoundingSphereCenter ( hNewObj )
+    local xMinObj, yMinObj, zMinObj = object.getBoundingBoxMin ( hNewObj )
+    local xMaxObj, yMaxObj, zMaxObj = object.getBoundingBoxMax ( hNewObj )
+
+    object.setTranslation ( this.hNewObject ( ), xParentObj, nTy, zParentObj , object.kGlobalSpace )
+    object.setVisible ( this.hNewObject ( ), true )
+    object.setParent ( hNewObj, hParent, true  )
+    
+    
     elseif nState == 5 then
-        local sRemovedTag = this.DestroyObject ( )
-        
-        if sRemovedTag == nil then
-        else        
-            user.sendEvent ( hUser, "DesignerPlugin_Main", "onRemoveArticle", sRemovedTag )
-        end
+        this.DestroyObject ( )        
     end
     
     if nState == 5 then
@@ -77,7 +93,7 @@ function MovingObject.SetModel ( nState, hParent, nPointX  )
         local sTag = scene.getObjectTag ( hScene, this.hNewObject ( ) )
         user.sendEvent ( hUser,  "DesignerPlugin_Main", "onAddArticle", sTag, this.sAddedArticle ( ) ) 
     end
-
+	
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------

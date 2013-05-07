@@ -45,10 +45,14 @@ function ArticleInfoAI.createItems ( )
         
         hud.setComponentBorderColor ( hLabel, 0, 0, 0, 0 )
         hud.setComponentBorderColor ( hData, 0, 0, 0, 0 )
+
         
         hud.setLabelTextEncoding ( hLabel, hud.kEncodingUTF8 )
         hud.setLabelTextEncoding ( hData, hud.kEncodingUTF8 )
         
+
+
+
         hud.setLabelFont (hLabel, "arial" )
         hud.setLabelFont (hData, "arial" )
         hud.setLabelTextHeight ( hLabel, 50 )
