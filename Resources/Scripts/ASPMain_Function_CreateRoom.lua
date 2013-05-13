@@ -63,8 +63,8 @@ function ASPMain.CreateRoom ( nID )
     --*Set Room size *
     --****************
     
-    local nLength = this.RoomDefaultLength ( )
-    local nWidth = this.RoomDefaultWidth ( )
+    local nLength = this.RoomLength ( )
+    local nWidth = this.RoomWidth ( )
     
     --Clear scene
     this.DestroyRoom (  )
