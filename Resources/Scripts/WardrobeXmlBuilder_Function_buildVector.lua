@@ -1,15 +1,18 @@
 --------------------------------------------------------------------------------
---  Handler.......... : onLoadArticle
+--  Function......... : buildVector
 --  Author........... : 
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function MovingObject.onLoadArticle ( nArtNr )
+function WardrobeXmlBuilder.buildVector ( hObject, sName, getXYZ )
 --------------------------------------------------------------------------------
-	 
-     this.LoadArticle ( nArtNr )
-	
+
+    local hElement = this.createNewElement ( sName )
+    local x, y, z = getXYZ ( hObject, object.kGlobalSpace )    
+    this.buildXYZ ( hElement, x, y, z )
+    return hElement	
+
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------
