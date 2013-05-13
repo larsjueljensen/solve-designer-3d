@@ -9,12 +9,10 @@ function ArticleInfoAI.destroyItems ( )
 --------------------------------------------------------------------------------
 	
 	local hHolder = hud.getComponent ( this.getUser ( ), "main.ArticleInfoWindow" )
-    
-    local nChildComponents = hud.getContainerChildCount ( hHolder )
-    log.message ( "Destroying info items" )
-    for i = 0, nChildComponents - 1
+
+    for i = 0, hud.getContainerChildCount ( hHolder ) - 1
     do
-        local hChild = hud.getComponentAt( this.getUser ( ), i )
+        local hChild = hud.getComponentAt( this.getUser ( ), 0 )
         hud.destroyComponent ( hChild )
 	end
 --------------------------------------------------------------------------------

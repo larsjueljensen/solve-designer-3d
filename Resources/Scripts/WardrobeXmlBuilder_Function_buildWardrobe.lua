@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------
 --  Function......... : buildWardrobe
---  Author........... : Lars Juel Jensen
---  Description...... : Builds an XML string from the relevant scene objects
+--  Author........... : 
+--  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
@@ -16,9 +16,7 @@ function WardrobeXmlBuilder.buildWardrobe ( hScene )
             xml.appendElementChildElement ( hWardrobeXml, this.buildArticle3D ( hObject ) )
         end
     end
-    
-    log.message ( xml.toString ( hWardrobeXml ) )
-    
+        
     return xml.toString ( hWardrobeXml )
 	
 --------------------------------------------------------------------------------

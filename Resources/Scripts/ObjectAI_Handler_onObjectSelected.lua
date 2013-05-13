@@ -7,12 +7,7 @@
 --------------------------------------------------------------------------------
 function ObjectAI.onObjectSelected ( hObj )
 --------------------------------------------------------------------------------
-	
-	--
-	-- Write your code here, using 'this' as current AI instance.
-	--
-    
-    log.message ( "Received Object: ", hObj )
+
     this.hMovingObject ( hObj )
     this.bIsMovingObject ( true )
 	
