@@ -76,6 +76,7 @@ function MovingObject.SetModel ( nState, hParent, nPointX  )
     else
         local sTag = scene.getObjectTag ( hScene, this.hNewObject ( ) )
         object.addAIModel ( hNewObj, "CommonObjectProperties" )
+        object.addAIModel ( hNewObj, "Rule01_CornerCabinetFaceCenter" )
         this.setObjectArticleNumber ( hNewObj, this.sAddedArticle ( ) )
         user.sendEvent ( hUser,  "DesignerPlugin_Main", "onAddArticle", sTag, this.sAddedArticle ( ) ) 
     end

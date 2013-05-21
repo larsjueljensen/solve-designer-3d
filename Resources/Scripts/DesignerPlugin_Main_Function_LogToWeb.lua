@@ -8,11 +8,10 @@
 function DesignerPlugin_Main.LogToWeb ( sLogStatement )
 --------------------------------------------------------------------------------
 
-
-if this.bLogState( ) then
-
-    system.openURL ( 'javascript:onPluginLog("'..sLogStatement..'");', '' )
-end
+    if this.bLogState( ) then
+        system.openURL ( 'javascript:onPluginLog("'..sLogStatement..'");', '' )
+    end
+    
 --------------------------------------------------------------------------------
 
 end
