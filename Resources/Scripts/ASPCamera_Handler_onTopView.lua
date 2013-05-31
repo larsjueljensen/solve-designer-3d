@@ -12,8 +12,6 @@ function ASPCamera.onTopView (  )
     local hCam = this.getObject ( )
     local bMode = user.getAIVariable ( hUser, "ASPMain", "bCamera2DMode" )
     
-    log.message ("In fnc ASPCamera.onReset: ", bMode )
-    
         if bMode then
             this.nDstAngleY ( -90 ) 
             this.nDstDist       ( this.nBSphereRadius ( ) * 2 )

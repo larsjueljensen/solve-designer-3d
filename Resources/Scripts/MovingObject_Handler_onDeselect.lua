@@ -8,17 +8,9 @@
 function MovingObject.onDeselect (  )
 --------------------------------------------------------------------------------
 	
-	--
-	-- Write your code here, using 'this' as current AI instance.
-	--
-    
-    this.hSelectedObject ( nil )
-    
-    local hIcon = object.getParent (  this.hMovingObject( ) )
-    
-    object.setVisible ( hIcon )
+    this.hSelectedObject ( nil )    
+    object.setVisible ( object.getParent (  this.hMovingObject( ) ) )
     this.hMovingObject ( nil ) 
-    log.message ( "onDeselect: object deselected" )
 	
 --------------------------------------------------------------------------------
 end

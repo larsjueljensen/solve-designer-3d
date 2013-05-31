@@ -38,7 +38,7 @@ function MovingObject.SetModel ( nState, hParent, nPointX  )
     
         local sName = object.getModelName( hNewObj )
         
-        object.setTranslation ( hNewObj, nTx, 0, nTz + 2.5, object.kGlobalSpace )
+        object.translate ( hNewObj, nTx, 0, nTz + 2.5, object.kGlobalSpace )
         object.setVisible ( hNewObj, true )
         user.setAIVariable ( this.getUser ( ), "CursorController", "CursorState", 0 )
         
@@ -72,12 +72,23 @@ function MovingObject.SetModel ( nState, hParent, nPointX  )
         end
     end
     
-    if nState == 5 then
-    else
+    if nState ~= 5 then
+    
         local sTag = scene.getObjectTag ( hScene, this.hNewObject ( ) )
+
+        local hWardrobeObject = scene.createRuntimeObject ( hScene, "WardrobeObject" )
+        object.addAIModel ( hWardrobeObject, "CommonObjectProperties" )
+        this.setObjectArticleNumber ( hWardrobeObject, this.sAddedArticle ( ) )        
+        
+        object.matchTranslation ( hWardrobeObject, hNewObj, object.kGlobalSpace )
+        --object.setParent ( hNewObj, hWardrobeObject, true )
+        
+        this.hNewObject ( hWardrobeObject )
+        
+        -- TODO: Remove when all other code uses WardrobeObject instead
         object.addAIModel ( hNewObj, "CommonObjectProperties" )
-        object.addAIModel ( hNewObj, "Rule01_CornerCabinetFaceCenter" )
         this.setObjectArticleNumber ( hNewObj, this.sAddedArticle ( ) )
+        
         user.sendEvent ( hUser,  "DesignerPlugin_Main", "onAddArticle", sTag, this.sAddedArticle ( ) ) 
     end
 

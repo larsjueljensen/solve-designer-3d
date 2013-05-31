@@ -10,19 +10,11 @@ function Slider.onCreate ( sName, sContainer )
 	
 	this.sSliderName ( sName )
     
-    log.message ( "In fnc onCreate: " )
-    log.message ( "sName and sContainer = ", sName, " and ", sContainer )
-    
-
-    
     local hContainer = hud.getComponent ( application.getCurrentUser ( ), sContainer )
     if ( hContainer ~= nil ) then
         local hSlider = hud.getComponent ( application.getCurrentUser ( ), this.sSliderName ( )..".Slide_Container" )
         if ( hSlider ) 
         then
-            log.message ( hContainer , " and ", this.sSliderName ( ) ) 
-        
-        
             hud.setComponentOrigin          ( hSlider, hud.kOriginCenter )
             hud.setComponentPosition        ( hSlider, 50, 50 )  
             hud.setComponentSize            ( hSlider, 100, 100 )        
@@ -80,8 +72,6 @@ function Slider.onCreate ( sName, sContainer )
             hud.pushActionCommandArgument   ( hRightArrowClicked, false )
             hud.endActionCommand            ( hRightArrowClicked )          
             hud.setButtonOnClickedAction    ( hRightArrow, hRightArrowClicked )
-            
-            log.warning ( "Right arrow clicked" )
         end
     end
 	

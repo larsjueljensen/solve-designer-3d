@@ -10,14 +10,6 @@ function ASPMain.onWheelController ( state )
 	
     this.bWheelUsed ( true )
 
-    
---     if state == 0 then
--- 	this.bWheelUsed(  false )
---     elseif state == 1 then
---     log.message ( "Wheel used" )
---     this.bWheelUsed ( true )
---     end
--- 	
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------

@@ -62,10 +62,6 @@ function ASPCamera.computeSceneBSphere ( )
     this.nBSphereY      ( y )
     this.nBSphereZ      ( z )
     this.nBSphereRadius ( r )
-    
-    log.message( "Sphere radius= ", this.nBSphereRadius ( ) )
-    
-    
 
 --------------------------------------------------------------------------------
 end

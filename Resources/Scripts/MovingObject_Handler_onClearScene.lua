@@ -8,8 +8,6 @@
 function MovingObject.onClearScene (  )
 --------------------------------------------------------------------------------
 	
-	log.message ( "Clearing all objects from scene" )
-    
     this.ClearScene ( )
 	
 --------------------------------------------------------------------------------

@@ -12,11 +12,8 @@ function ASPMain.onMouseButtonDown ( nButton, nPointX, nPointY, nRayPntX, nRayPn
     local hScene = application.getCurrentUserScene ( )
     local nPosX, nPosY = hud.getCursorPosition ( this.getUser() )
     
-    log.message ( "function ASPMain.onMouseButtonDown: ", sTag )
-    
     if ( nPointY < -0.4 ) and ( nPointY > -0.5 )  and nPointX < - 0.3 and nPointX > 0.3 then
-    
-    this.bWheelUsed ( true )
+        this.bWheelUsed ( true )
     end
     
     this.nStartPosX ( nPosX)
@@ -24,14 +21,11 @@ function ASPMain.onMouseButtonDown ( nButton, nPointX, nPointY, nRayPntX, nRayPn
     
     local hComponent =  hud.getUnderCursorComponent ( this.getUser ( ) )
     
-    if  hComponent == nil  
-    then
+    if  hComponent == nil  then
         this.bMouseButtonDown ( true )
     else
-
         local hComponent = hud.getUnderCursorComponent ( hUser )
         local sTag = hud.getComponentTag ( hComponent )
-   
     end
     
     
@@ -42,9 +36,9 @@ function ASPMain.onMouseButtonDown ( nButton, nPointX, nPointY, nRayPntX, nRayPn
         local sTag = scene.getObjectTag ( hScene, hHitObject )
         
         if not sensor.getCategoryBitAt ( hHitObject, 0, 1 ) then
-        this.bObjectIsSelected ( true )
+            this.bObjectIsSelected ( true )
         else
-        this.bObjectIsSelected ( false )
+            this.bObjectIsSelected ( false )
         end
       
     end

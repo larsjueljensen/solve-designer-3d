@@ -11,8 +11,6 @@ function ASPMain.GetContent ( )
     local hUser = application.getCurrentUser ( )
 	local tObjects = user.getAIVariable ( this.getUser ( ), "MovingObject", "tObjectGroup" )
     local hList = hud.getComponent ( hUser, "DialogsHUD.SceneObjects" )
-    log.message ( "got handle to table: ", tObjects )
-    
     local nSize = table.getSize ( tObjects )
     
     hud.addListColumn ( hList )

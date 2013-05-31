@@ -23,16 +23,16 @@ function CursorControlller.sceneMouseMove ( hScene,  nPointX, nPointY, nDeltaX, 
             this.CursorState ( 4 )
         
             if bSensorTypeAddon == true then
-                user.sendEvent ( hUser , "MovingObject", "onHighlightObject", hHitObject, hHitObject, 0 )
+                --user.sendEvent ( hUser , "MovingObject", "onHighlightObject", hHitObject, hHitObject, 0 )
             else
                 local hTopNode = this.GetTopNode ( hHitObject )
                 this.TopNode ( hTopNode )
-                user.sendEvent ( hUser, "MovingObject", "onHighlightObject", hHitObject, hTopNode, 0 )  
+                --user.sendEvent ( hUser, "MovingObject", "onHighlightObject", hHitObject, hTopNode, 0 )  
             end
             
         else 
             hTopNode = hHitObject
-            user.sendEventImmediate ( hUser, "MovingObject", "onHighlightObject", hHitObject, hTopNode, 1 )
+            --user.sendEventImmediate ( hUser, "MovingObject", "onHighlightObject", hHitObject, hTopNode, 1 )
         end
     end
 	

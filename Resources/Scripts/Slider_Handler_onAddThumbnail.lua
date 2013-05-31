@@ -7,7 +7,9 @@
 --------------------------------------------------------------------------------
 function Slider.onAddThumbnail ( sTextureName )
 --------------------------------------------------------------------------------
+    
     this.LogToWeb ( "onAddThumbnail" )
+    
     local hUser = application.getCurrentUser ( )
     local nMode = user.getAIVariable ( hUser, "ASPMain", "nSliderMode" )
     this.nSliderMode( nMode )

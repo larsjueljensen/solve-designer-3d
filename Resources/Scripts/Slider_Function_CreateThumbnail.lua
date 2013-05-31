@@ -48,19 +48,16 @@ function Slider.CreateThumbnail ( nPosition, sTextureName )
         hud.setComponentBackgroundImage ( hInfo, "info_ring" )
         
         if nAttribute == 7 then
-        log.message ( "Creating paint thumbnail" )
+
         hud.setComponentBackgroundColor ( hThumbnail, 127,127,127, 255 )
         hud.setComponentBackgroundImage ( hThumbnail, sTextureName )--.."_thumb"  
         
-        log.message ( "Setting thumbnail bg gfx: ", sTextureName )
-
         else
         
         
         hud.setComponentBackgroundColor ( hThumbnail, 127,127,127, 255 )
         hud.setComponentBackgroundImage ( hThumbnail, sTextureName )--.."_thumb"  
-        
-        log.message ( "Setting thumbnail bg gfx: ", sTextureName )
+
         end
         
         --create a new action for this button to apply the texture when we click on it

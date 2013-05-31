@@ -60,9 +60,7 @@ function ASPCamera.ComputeObjectSphere ( hObj )
     this.nBSphereY      ( y - 30)
     this.nBSphereZ      ( z+0)
     this.nObjectBoundingSphereRadius ( r + 25 )
-    
-    log.message( "Object radius= ", this.nObjectBoundingSphereRadius ( ) )
-	
+
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------

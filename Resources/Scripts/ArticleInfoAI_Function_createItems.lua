@@ -7,8 +7,7 @@
 --------------------------------------------------------------------------------
 function ArticleInfoAI.createItems ( )
 --------------------------------------------------------------------------------
-	log.message ( "Create article info items" )
-    
+
     local hUser = this.getUser ( )
 	local hHolder = hud.getComponent( hUser, "main.ArticleInfo")
     

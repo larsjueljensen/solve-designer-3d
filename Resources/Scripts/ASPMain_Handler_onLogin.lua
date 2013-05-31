@@ -9,14 +9,6 @@ function ASPMain.onLogin (  )
 --------------------------------------------------------------------------------
 	
 	this.SendLogin ( )
-    
-    log.message ( "Connecting....")
-    log.message ( "Connected" )
-    log.message ( "Data sent." )
-    
-    
-    --show lower menubar
-    
 	
 --------------------------------------------------------------------------------
 end

@@ -12,8 +12,6 @@ function ASPMain.HighLightButton ( )
     local nButton = hud.getUnderCursorComponent ( hUser )
     local nOn = hud.getComponent ( hUser, "controls.ButtonOn" )
     
-    log.message ( "User clicked: ", nButton  )
-    
     this.ObjectDeselected ( )
     
     if nButton then

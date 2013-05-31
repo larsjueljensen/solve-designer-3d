@@ -9,8 +9,7 @@ function Slider.onSetTargetObject ( sTargetObjectName )
 --------------------------------------------------------------------------------
 	
 	this.sTargetObject ( sTargetObjectName )
-	
-    log.message(" Received TargertObject name", sTargetObjectName )
+
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------

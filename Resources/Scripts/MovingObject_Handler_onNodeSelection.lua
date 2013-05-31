@@ -10,13 +10,8 @@ function MovingObject.onNodeSelection ( sSlider, sTexturename )
 	
     this.SelectObject ( )
     this.bListSelection( true )
-    
-    
-    log.message("In onNodeSelected, received: ", sTexturename)
-    
-    --this.CreateObject ( )
     this.ShowTarget (  )
     
-    ------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------

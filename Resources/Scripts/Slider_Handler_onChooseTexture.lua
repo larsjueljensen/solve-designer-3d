@@ -13,13 +13,7 @@ function Slider.onChooseTexture ( sSlidername, sTextureName )
     local hReflections = scene.getTaggedObject( hScene, "RefGround"  ) 
 
     local nState
-	
-    log.message ( "In fnc Slider.onChooseTexture: ", sTextureName )
-    
-    
     local sTarget = user.getAIVariable ( hUser, "MovingObject", "hSelectedObject" )
-    
-    log.message( "Gor hSelectedObject: ", sTarget )
     local sTag = scene.getObjectTag ( hScene, sTarget )
    
     
@@ -36,25 +30,13 @@ function Slider.onChooseTexture ( sSlidername, sTextureName )
     local hButton = hud.getUnderCursorComponent( hUser )
     
     if hButton then
-    local hContainer = hud.getComponentContainer ( hButton )
-    local sName = hud.getComponentTag ( hContainer )
-    local bIsPalette = string.compare ( sName, "Palette" )
-    
-        if bIsPalette == true then
-        log.message ( "Button is static palette" )
-        end
+        local hContainer = hud.getComponentContainer ( hButton )
+        local sName = hud.getComponentTag ( hContainer )
+        local bIsPalette = string.compare ( sName, "Palette" )
     end
 
     shape.overrideMeshSubsetMaterialDiffuse ( sTarget, 1, 0.6, 0.6, 0.6, 1 )
 
-    
-    
-
-     
-    log.message ( sTarget )
-    log.message ( nWall_1 )
-    log.message ( nWall_2 )
-    
     
     this.sTargetObject ( sTarget )
     
@@ -63,13 +45,8 @@ function Slider.onChooseTexture ( sSlidername, sTextureName )
     if ( sTarget   )
     then    
         if ( sTarget ) then 
-        log.message ( "Got target object: ", sTarget )
-
             
-            
-        if bIsPalette == true then
-        
-        else
+        if bIsPalette == false then
             
                 if  this.nSliderMode( ) == 7 then 
                 
