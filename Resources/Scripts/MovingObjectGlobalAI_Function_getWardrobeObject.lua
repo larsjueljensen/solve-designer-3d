@@ -1,15 +1,27 @@
 --------------------------------------------------------------------------------
---  Handler.......... : onEnterFrame
+--  Function......... : getWardrobeObject
 --  Author........... : 
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function MovingObjectGlobalAI.onEnterFrame (  )
+function MovingObjectGlobalAI.getWardrobeObject ( hObject )
 --------------------------------------------------------------------------------
-	
-    local minx, miny, minz ,maxx, maxy, maxz = this.getBoundingBox ( this.getObject ( ) )
-    this.debugDrawBox ( minx, miny, minz, maxx, maxy, maxz, 0.0, 1.0, 1.0, 0.8 )
+
+    local hResult = hObject
+    
+    while ( hResult ~= nil ) do
+        
+        if ( string.contains ( object.getModelName ( hResult ), "Wardrobe" ) ) then
+        
+            return hResult
+        
+        end
+        
+        hResult = object.getParent ( hResult )
+    end
+    
+    return nil
 	
 --------------------------------------------------------------------------------
 end

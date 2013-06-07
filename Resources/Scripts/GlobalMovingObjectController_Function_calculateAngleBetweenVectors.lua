@@ -1,16 +1,15 @@
 --------------------------------------------------------------------------------
---  Handler.......... : onEnterFrame
+--  Function......... : calculateAngleBetweenVectors
 --  Author........... : 
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function MovingObjectGlobalAI.onEnterFrame (  )
+function GlobalMovingObjectController.calculateAngleBetweenVectors ( ax, ay, bx, by )
 --------------------------------------------------------------------------------
-	
-    local minx, miny, minz ,maxx, maxy, maxz = this.getBoundingBox ( this.getObject ( ) )
-    this.debugDrawBox ( minx, miny, minz, maxx, maxy, maxz, 0.0, 1.0, 1.0, 0.8 )
-	
+
+    return math.atan2 ( by, bx ) -  math.atan2 ( ay, ax )
+    
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------

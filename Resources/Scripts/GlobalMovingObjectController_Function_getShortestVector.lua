@@ -1,15 +1,25 @@
 --------------------------------------------------------------------------------
---  Handler.......... : onEnterFrame
+--  Function......... : getShortestVector
 --  Author........... : 
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function MovingObjectGlobalAI.onEnterFrame (  )
+function GlobalMovingObjectController.getShortestVector ( ax, ay, bx, by )
 --------------------------------------------------------------------------------
 	
-    local minx, miny, minz ,maxx, maxy, maxz = this.getBoundingBox ( this.getObject ( ) )
-    this.debugDrawBox ( minx, miny, minz, maxx, maxy, maxz, 0.0, 1.0, 1.0, 0.8 )
+    local lenA = math.vectorLength ( ax, ay )
+    local lenB = math.vectorLength ( bx, by )
+    
+    if ((lenA == 0) or (lenB < lenA)) then
+        return bx, by
+    end
+    
+    if ((lenB == 0) or (lenA < lenB) then
+        return ax, ay
+    end
+    
+    return ax, ay
 	
 --------------------------------------------------------------------------------
 end

@@ -1,15 +1,14 @@
 --------------------------------------------------------------------------------
---  Handler.......... : onEnterFrame
+--  Function......... : isMovable
 --  Author........... : 
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function MovingObjectGlobalAI.onEnterFrame (  )
+function MovingObjectGlobalAI.isMovable ( hObject )
 --------------------------------------------------------------------------------
-	
-    local minx, miny, minz ,maxx, maxy, maxz = this.getBoundingBox ( this.getObject ( ) )
-    this.debugDrawBox ( minx, miny, minz, maxx, maxy, maxz, 0.0, 1.0, 1.0, 0.8 )
+
+    return sensor.getCategoryBitAt ( hObject, 0, this.kSensorCategoryBitMovable ( ) )
 	
 --------------------------------------------------------------------------------
 end

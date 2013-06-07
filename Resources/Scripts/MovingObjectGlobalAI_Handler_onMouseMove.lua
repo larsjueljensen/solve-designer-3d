@@ -9,7 +9,8 @@ function MovingObjectGlobalAI.onMouseMove ( nPointX, nPointY, nDeltaX, nDeltaY, 
 --------------------------------------------------------------------------------
 	
     local hScene = application.getCurrentUserScene ( )
-    local hCollider, nHitDist, nHitSurfaceID, cx ,cy ,cz, i, j, k = scene.getFirstHitColliderEx ( hScene, nRayPntX, nRayPntY, nRayPntZ, nRayDirX, nRayDirY, nRayDirZ, 1000 )   
+    local hCollider, nHitDist, nHitSurfaceID, cx ,cy ,cz, i, j, k = scene.getFirstHitColliderEx ( hScene, nRayPntX, nRayPntY, nRayPntZ, nRayDirX, nRayDirY, nRayDirZ, 1000 ) 
+
     this.rotateObjectToMatchWall ( this.getObject ( ), hCollider )
     this.translateObjectToMatchWall ( this.getObject ( ), hCollider, cx, cy, cz )
 	

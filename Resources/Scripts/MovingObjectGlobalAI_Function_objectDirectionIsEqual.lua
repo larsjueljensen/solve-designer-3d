@@ -1,16 +1,18 @@
 --------------------------------------------------------------------------------
---  Handler.......... : onEnterFrame
+--  Function......... : objectDirectionIsEqual
 --  Author........... : 
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function MovingObjectGlobalAI.onEnterFrame (  )
+function MovingObjectGlobalAI.objectDirectionIsEqual ( hObjectA, hObjectB )
 --------------------------------------------------------------------------------
-	
-    local minx, miny, minz ,maxx, maxy, maxz = this.getBoundingBox ( this.getObject ( ) )
-    this.debugDrawBox ( minx, miny, minz, maxx, maxy, maxz, 0.0, 1.0, 1.0, 0.8 )
-	
+
+    local ax, ay, az = object.getDirection ( hObjectA, object.kGlobalSpace )
+    local bx, by, bz = object.getDirection ( hObjectB, object.kGlobalSpace )
+    
+    return ax == bx and ay == by and az == bz    
+
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------

@@ -1,15 +1,25 @@
 --------------------------------------------------------------------------------
---  Handler.......... : onEnterFrame
+--  Function......... : getTargetWidth
 --  Author........... : 
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function MovingObjectGlobalAI.onEnterFrame (  )
+function MovingObjectGlobalAI.getTargetWidth ( hObject )
 --------------------------------------------------------------------------------
-	
-    local minx, miny, minz ,maxx, maxy, maxz = this.getBoundingBox ( this.getObject ( ) )
-    this.debugDrawBox ( minx, miny, minz, maxx, maxy, maxz, 0.0, 1.0, 1.0, 0.8 )
+
+    local width = 0
+    local aiModel = "CommonObjectProperties"
+    
+    if ( object.hasAIModel ( hObject, aiModel ) ) then
+        width = object.getAIVariable ( hObject, aiModel, "objectWidth" )
+    end
+    
+    for i = 0, object.getChildCount ( hObject ) - 1 do        
+        width = width + this.getTargetWidth ( object.getChildAt ( hObject, i ) )
+    end
+    
+    return width
 	
 --------------------------------------------------------------------------------
 end

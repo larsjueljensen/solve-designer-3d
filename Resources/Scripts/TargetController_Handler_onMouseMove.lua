@@ -13,7 +13,7 @@ function TargetController.onMouseMove ( nPointX, nPointY, nDeltaX, nDeltaY, nRay
     
     if ( hCollider ~= nil ) then
     
-        local hTarget = scene.getTaggedObject ( hScene, "target" )    
+        local hTarget = scene.getTaggedObject ( hScene, "target" )   
         local sColliderTag = scene.getObjectTag ( hScene, hCollider )
         local xW, yW, zW = object.getTranslation( scene.getTaggedObject ( hScene, sColliderTag ), object.kGlobalSpace )
 

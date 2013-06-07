@@ -1,16 +1,15 @@
 --------------------------------------------------------------------------------
---  Handler.......... : onEnterFrame
+--  Function......... : crossProduct2DVector
 --  Author........... : 
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function MovingObjectGlobalAI.onEnterFrame (  )
+function GlobalMovingObjectController.crossProduct2DVector ( ax, ay, bx, by )
 --------------------------------------------------------------------------------
 	
-    local minx, miny, minz ,maxx, maxy, maxz = this.getBoundingBox ( this.getObject ( ) )
-    this.debugDrawBox ( minx, miny, minz, maxx, maxy, maxz, 0.0, 1.0, 1.0, 0.8 )
-	
+    return ax * by - ay * bx
+     
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------

@@ -1,14 +1,14 @@
 --------------------------------------------------------------------------------
---  Function......... : getDimensions
+--  Function......... : getBoundingBox
 --  Author........... : 
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function MovingObjectGlobalAI.getDimensions ( hObject )
+function MovingObjectGlobalAI.getBoundingBox ( hObject )
 --------------------------------------------------------------------------------
 	
-   local x, y, z = object.getTranslation ( hObject, object.kGlobalSpace )
+    local x, y, z = object.getTranslation ( hObject, object.kGlobalSpace )
 	
     local xx, xy, xz = object.getXAxis ( hObject, object.kGlobalSpace )
     local yx, yy, yz = object.getYAxis ( hObject, object.kGlobalSpace )

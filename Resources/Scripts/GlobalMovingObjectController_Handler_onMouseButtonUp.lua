@@ -22,7 +22,7 @@ function GlobalMovingObjectController.onMouseButtonUp ( nButton, nPointX, nPoint
         -- Clear the variables used to store the objects
         this.hHelperObject ( nil )
         this.hMovingObject ( nil )
-        
+        this.correctionAngle ( 0 )
     end
 	
 --------------------------------------------------------------------------------
