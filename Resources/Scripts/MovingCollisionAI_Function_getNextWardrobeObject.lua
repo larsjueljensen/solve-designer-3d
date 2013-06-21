@@ -1,25 +1,26 @@
 --------------------------------------------------------------------------------
---  Function......... : getShortestVector
+--  Function......... : getNextWardrobeObject
 --  Author........... : 
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function GlobalMovingObjectController.getShortestVector ( ax, ay, bx, by )
+function MovingCollisionAI.getNextWardrobeObject ( hObject )
 --------------------------------------------------------------------------------
 	
-    local lenA = math.vectorLength ( ax, ay )
-    local lenB = math.vectorLength ( bx, by )
+    local hResult = object.getParent ( hObject )
     
-    if ((lenA == 0) or (lenB < lenA)) then
-        return bx, by
+    while ( hResult ~= nil ) do
+
+        if (this.isWardrobeObject ( hResult )) then
+            return hResult
+        end
+        
+        hResult = object.getParent ( hResult )
+        
     end
     
-    if ((lenB == 0) or (lenA < lenB)) then
-        return ax, ay
-    end
-    
-    return ax, ay
+    return nil
 	
 --------------------------------------------------------------------------------
 end

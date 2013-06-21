@@ -1,25 +1,23 @@
 --------------------------------------------------------------------------------
---  Function......... : getShortestVector
+--  Function......... : isMoving
 --  Author........... : 
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function GlobalMovingObjectController.getShortestVector ( ax, ay, bx, by )
+function MovingObjectGlobalAI.isMoving ( hObject )
 --------------------------------------------------------------------------------
-	
-    local lenA = math.vectorLength ( ax, ay )
-    local lenB = math.vectorLength ( bx, by )
-    
-    if ((lenA == 0) or (lenB < lenA)) then
-        return bx, by
+
+    local hWardrobeObject = this.getWardrobeObject ( hObject )
+
+    if ( hWardrobeObject ~= nil ) then
+        local hParent = object.getParent ( hWardrobeObject )
+        if (hParent ~= nil) then
+            return string.contains ( object.getModelName ( hParent ), "MovingObject" )
+        end
     end
     
-    if ((lenB == 0) or (lenA < lenB)) then
-        return ax, ay
-    end
-    
-    return ax, ay
+    return false
 	
 --------------------------------------------------------------------------------
 end

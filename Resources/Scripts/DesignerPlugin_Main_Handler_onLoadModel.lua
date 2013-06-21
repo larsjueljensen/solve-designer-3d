@@ -16,7 +16,6 @@ function DesignerPlugin_Main.onLoadModel ( sArticleNumber )
         
         this.LogToWeb ( "File found in cache: "..sFilename )
         this.LogToWeb ( "Adding to palette: "..sArticleNumber )
-        --this.SetSliderThumbs ( sArticleNumber )
         
         local hSlider = user.getAIVariable ( this.getUser ( ), "ASPMain", "hSliderObject")
         this.LogToWeb ( "Slider: " )

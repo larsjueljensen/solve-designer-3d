@@ -7,20 +7,13 @@
 --------------------------------------------------------------------------------
 function MovingObjectGlobalAI.onSensorCollisionBegin ( nSensorID, hTargetObject, nTargetSensorID )
 --------------------------------------------------------------------------------
-	
-    if ( this.isMovable ( hTargetObject ) ) then
-    
-        local hTargetWardrobe = this.getWardrobeObject ( hTargetObject )
 
-        if ( this.objectDirectionIsEqual ( this.getObject ( ), hTargetWardrobe ) ) then
-        
-            object.setParent ( hTargetWardrobe, this.getObject ( ), true )
-            local newWidth = this.objectWidth ( ) + this.getTargetWidth ( hTargetObject )
-            this.objectWidth ( newWidth )
-            
-        end
-        
+    if not this.isMoving ( hTargetObject ) then
+        local hSnapObject = this.getWardrobeObject ( hTargetObject )
+        hashtable.add ( this.htSnapObjects ( ), scene.getObjectTag ( application.getCurrentUserScene ( ), hSnapObject ), hSnapObject )
     end
+
+	
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------

@@ -1,25 +1,31 @@
 --------------------------------------------------------------------------------
---  Function......... : getShortestVector
+--  Function......... : getTopMostWardrobeObject
 --  Author........... : 
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function GlobalMovingObjectController.getShortestVector ( ax, ay, bx, by )
+function MovingCollisionAI.getTopMostWardrobeObject ( hObject)
 --------------------------------------------------------------------------------
-	
-    local lenA = math.vectorLength ( ax, ay )
-    local lenB = math.vectorLength ( bx, by )
+
+    local hNext = hObject
+    local hResult
     
-    if ((lenA == 0) or (lenB < lenA)) then
-        return bx, by
+    log.warning ( "ABCDEFG!" )
+    
+    repeat
+        log.warning ( "!" )
+        hResult = hNext
+        hNext = this.getNextWardrobeObject ( hNext )
+    until hNext == nil
+    
+    if ( this.isWardrobeObject ( hResult ) ) then
+        log.warning ( "@" )
+        return hResult
     end
     
-    if ((lenB == 0) or (lenA < lenB)) then
-        return ax, ay
-    end
-    
-    return ax, ay
+    log.warning ( "nil" )
+    return nil
 	
 --------------------------------------------------------------------------------
 end

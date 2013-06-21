@@ -1,19 +1,17 @@
 --------------------------------------------------------------------------------
---  Function......... : dropDragObjectIntoPlace
+--  Function......... : getDistanceToObject
 --  Author........... : 
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function DragAndDropController.dropDragObjectIntoPlace ( )
+function MovingObjectGlobalAI.getDistanceToObject ( hObject, x, y, z, space )
 --------------------------------------------------------------------------------
 
-    this.setObjectOpacity ( this.hDragObject ( ), 1.0 )
-
-	scene.setObjectTag ( application.getCurrentUserScene ( ), this.hDragObject ( ), "ID_"..this.nextObjectId ( ) )
-
-    this.nextObjectId ( this.nextObjectId ( ) + 1 )
+    local ox, oy, oz = object.getTranslation ( hObject, space )
+    local dx, dy, dz = x - ox, y - oy, z - oz
+    return math.vectorLength ( dx, dy, dz )
+	
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------
--------

@@ -1,19 +1,18 @@
 --------------------------------------------------------------------------------
---  Function......... : dropDragObjectIntoPlace
+--  Function......... : swapObjectsPosition
 --  Author........... : 
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function DragAndDropController.dropDragObjectIntoPlace ( )
+function MovingObjectGlobalAI.swapObjectsPosition ( hObjectA, hObjectB, space )
 --------------------------------------------------------------------------------
 
-    this.setObjectOpacity ( this.hDragObject ( ), 1.0 )
-
-	scene.setObjectTag ( application.getCurrentUserScene ( ), this.hDragObject ( ), "ID_"..this.nextObjectId ( ) )
-
-    this.nextObjectId ( this.nextObjectId ( ) + 1 )
+    local ax, ay, az = object.getTranslation ( hObjectA, space )
+    local bx, by, bz = object.getTranslation ( hObjectB, space )
+    object.setTranslation ( hObjectA, bx, by, bz, space )
+    object.setTranslation ( hObjectB, ax, ay, az, space )
+	
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------
--------

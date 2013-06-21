@@ -11,7 +11,8 @@ function GlobalMovingObjectController.onMouseMove ( nPointX, nPointY, nDeltaX, n
     -- If a temporary moving object helper exists
     if ( this.hMovingObject ( ) ~= nil ) then
         
-        local dx, dy, dz = this.calculateCorrectedRayCastVector( nRayDirX, nRayDirY, nRayDirZ )
+--         local dx, dy, dz = this.calculateCorrectedRayCastVector( nRayDirX, nRayDirY, nRayDirZ )
+        local dx, dy, dz = nRayDirX, nRayDirY, nRayDirZ
 
         -- Call the correct ai model (Global or Local) of the moving object helper
         if ( object.hasAIModel ( this.hMovingObject ( ), "MovingObjectGlobalAI" ) ) then

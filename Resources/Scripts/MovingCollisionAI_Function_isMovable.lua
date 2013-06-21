@@ -1,19 +1,19 @@
 --------------------------------------------------------------------------------
---  Function......... : dropDragObjectIntoPlace
+--  Function......... : isMovable
 --  Author........... : 
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function DragAndDropController.dropDragObjectIntoPlace ( )
+function MovingCollisionAI.isMovable ( hObject )
 --------------------------------------------------------------------------------
 
-    this.setObjectOpacity ( this.hDragObject ( ), 1.0 )
-
-	scene.setObjectTag ( application.getCurrentUserScene ( ), this.hDragObject ( ), "ID_"..this.nextObjectId ( ) )
-
-    this.nextObjectId ( this.nextObjectId ( ) + 1 )
+    if ( hObject ~= nil ) then
+        return sensor.getCategoryBitAt ( hObject, 0, this.kSensorCategoryBitMovable ( ) )
+    end
+    
+    return false
+	
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------
--------

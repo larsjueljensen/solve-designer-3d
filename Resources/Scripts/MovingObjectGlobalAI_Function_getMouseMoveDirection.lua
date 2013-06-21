@@ -1,19 +1,17 @@
 --------------------------------------------------------------------------------
---  Function......... : dropDragObjectIntoPlace
+--  Function......... : getMouseMoveDirection
 --  Author........... : 
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function DragAndDropController.dropDragObjectIntoPlace ( )
+function MovingObjectGlobalAI.getMouseMoveDirection ( x, y, z )
 --------------------------------------------------------------------------------
 
-    this.setObjectOpacity ( this.hDragObject ( ), 1.0 )
-
-	scene.setObjectTag ( application.getCurrentUserScene ( ), this.hDragObject ( ), "ID_"..this.nextObjectId ( ) )
-
-    this.nextObjectId ( this.nextObjectId ( ) + 1 )
+    local px, py, pz = object.getTranslation ( this.getObject ( ), object.kGlobalSpace )    
+    return x - px, y - py, z - pz
+    
+	
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------
--------

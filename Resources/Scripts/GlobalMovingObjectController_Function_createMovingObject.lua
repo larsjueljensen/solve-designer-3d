@@ -38,15 +38,18 @@ function GlobalMovingObjectController.createMovingObject ( hHelperObject, sType 
     -- (ie. A hull (global) object has different kinds of restrictions than a drawer (local) )
     local aiModelName = "MovingObject"..sType.."AI"
     object.addAIModel ( hMovingObject, aiModelName )
+    
+    
     this.transferAIVariable ( hMovingObject, aiModelName, hHelperObject, "CommonObjectProperties", "objectWidth" )
     this.transferAIVariable ( hMovingObject, aiModelName, hHelperObject, "CommonObjectProperties", "objectHeight" )
     this.transferAIVariable ( hMovingObject, aiModelName, hHelperObject, "CommonObjectProperties", "objectDepth" )
+
+    object.sendEventImmediate ( hMovingObject, aiModelName, "onCreateSnapSensor" )
     
     this.setObjectOpacity ( hMovingObject, 0.8 )
     object.sendEvent ( hHelperObject, "HighlightObjectAI", "onHighlight", true )
 
     -- Save a handle to the objects in play so that we can remove the moving helper object correctly later
-    this.hHelperObject ( hHelperObject )
     this.hMovingObject ( hMovingObject )
     
 --------------------------------------------------------------------------------

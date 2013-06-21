@@ -1,19 +1,22 @@
 --------------------------------------------------------------------------------
---  Function......... : dropDragObjectIntoPlace
+--  Function......... : isParentMovingObject
 --  Author........... : 
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function DragAndDropController.dropDragObjectIntoPlace ( )
+function MovingCollisionAI.isParentMovingObject ( hObject )
 --------------------------------------------------------------------------------
 
-    this.setObjectOpacity ( this.hDragObject ( ), 1.0 )
-
-	scene.setObjectTag ( application.getCurrentUserScene ( ), this.hDragObject ( ), "ID_"..this.nextObjectId ( ) )
-
-    this.nextObjectId ( this.nextObjectId ( ) + 1 )
+    if ( hObject ~= nil ) then
+        local hParent = object.getParent ( hObject )
+        if ( hParent ~= nil ) then
+            return ( string.contains ( object.getModelName ( hParent ), "MovingObject" ) )
+        end
+    end
+    
+    return false
+	
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------
--------

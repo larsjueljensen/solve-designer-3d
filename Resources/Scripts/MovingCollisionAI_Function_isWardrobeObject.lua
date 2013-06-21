@@ -1,19 +1,21 @@
 --------------------------------------------------------------------------------
---  Function......... : dropDragObjectIntoPlace
+--  Function......... : isWardrobeObject
 --  Author........... : 
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function DragAndDropController.dropDragObjectIntoPlace ( )
+function MovingCollisionAI.isWardrobeObject ( hObject )
 --------------------------------------------------------------------------------
-
-    this.setObjectOpacity ( this.hDragObject ( ), 1.0 )
-
-	scene.setObjectTag ( application.getCurrentUserScene ( ), this.hDragObject ( ), "ID_"..this.nextObjectId ( ) )
-
-    this.nextObjectId ( this.nextObjectId ( ) + 1 )
+	
+    if ( hObject ~= nil ) then
+        return 
+            string.compare ( "WardrobeObject", object.getModelName ( hObject ) ) == 0
+            or  string.compare ( "WardrobeGroup", object.getModelName ( hObject ) ) == 0
+    end
+    
+    return false
+    
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------
--------

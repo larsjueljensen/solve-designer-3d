@@ -1,19 +1,18 @@
 --------------------------------------------------------------------------------
---  Function......... : dropDragObjectIntoPlace
+--  Function......... : objectDirectionIsEqual
 --  Author........... : 
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function DragAndDropController.dropDragObjectIntoPlace ( )
+function MovingCollisionAI.objectDirectionIsEqual ( hObjectA, hObjectB )
 --------------------------------------------------------------------------------
 
-    this.setObjectOpacity ( this.hDragObject ( ), 1.0 )
-
-	scene.setObjectTag ( application.getCurrentUserScene ( ), this.hDragObject ( ), "ID_"..this.nextObjectId ( ) )
-
-    this.nextObjectId ( this.nextObjectId ( ) + 1 )
+    local ax, ay, az = object.getDirection ( hObjectA, object.kGlobalSpace )
+	local bx, by, bz = object.getDirection ( hObjectB, object.kGlobalSpace )
+    
+    return ax == bx and ay == by and az == bz
+    
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------
--------

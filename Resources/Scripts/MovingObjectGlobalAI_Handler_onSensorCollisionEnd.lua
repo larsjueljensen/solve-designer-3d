@@ -1,26 +1,18 @@
 --------------------------------------------------------------------------------
---  Function......... : getShortestVector
+--  Handler.......... : onSensorCollisionEnd
 --  Author........... : 
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function GlobalMovingObjectController.getShortestVector ( ax, ay, bx, by )
+function MovingObjectGlobalAI.onSensorCollisionEnd ( nSensorID, hTargetObject, nTargetSensorID )
 --------------------------------------------------------------------------------
-	
-    local lenA = math.vectorLength ( ax, ay )
-    local lenB = math.vectorLength ( bx, by )
-    
-    if ((lenA == 0) or (lenB < lenA)) then
-        return bx, by
+		
+    if not this.isMoving ( hTargetObject ) then
+        local hSnapObject = this.getWardrobeObject ( hTargetObject )
+        hashtable.remove ( this.htSnapObjects ( ), scene.getObjectTag ( application.getCurrentUserScene ( ), hSnapObject ) )
     end
     
-    if ((lenB == 0) or (lenA < lenB)) then
-        return ax, ay
-    end
-    
-    return ax, ay
-	
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------

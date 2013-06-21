@@ -15,6 +15,8 @@ function DragAndDropController.createWardrobeObject ( hObject )
     object.matchRotation ( hWardrobeObject, hObject, object.kGlobalSpace )
 
     object.addAIModel ( hWardrobeObject, "HighlightObjectAI" )
+--    object.addAIModel ( hWardrobeObject, "MovingCollisionAI" )
+
     object.addAIModel ( hWardrobeObject, "CommonObjectProperties" )
     object.setAIVariable ( hWardrobeObject, "CommonObjectProperties", "articleNumber", this.articleNumber ( ) )
     object.setAIVariable ( hWardrobeObject, "CommonObjectProperties", "objectWidth", this.objectWidth ( ) )

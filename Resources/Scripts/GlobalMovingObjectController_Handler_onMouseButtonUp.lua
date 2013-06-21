@@ -11,16 +11,19 @@ function GlobalMovingObjectController.onMouseButtonUp ( nButton, nPointX, nPoint
     if (this.hMovingObject ( ) ~= nil ) then
 
         this.setObjectOpacity ( this.hMovingObject ( ), 1.0 )
-
-        -- Set the parent of the previously stored helper object ( wardrobe / wardrobe group )
-        -- to the parent of the previously stored moving object helper
-        object.setParent ( this.hHelperObject ( ), object.getParent ( this.hMovingObject ( ) ), true )
         
+        local hParent = object.getParent ( this.hMovingObject ( ) )
+
+        for i = 0, object.getChildCount ( this.hMovingObject ( ) ) - 1 do 
+            
+            object.setParent ( object.getChildAt ( this.hMovingObject ( ), 0 ), hParent, true )
+        	
+        end
+                
         -- Destroy the moving object
         scene.destroyRuntimeObject ( application.getCurrentUserScene ( ), this.hMovingObject ( ) )
                 
         -- Clear the variables used to store the objects
-        this.hHelperObject ( nil )
         this.hMovingObject ( nil )
         this.correctionAngle ( 0 )
     end

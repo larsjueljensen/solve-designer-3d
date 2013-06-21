@@ -1,26 +1,22 @@
 --------------------------------------------------------------------------------
---  Function......... : getShortestVector
+--  Function......... : getClosestObject
 --  Author........... : 
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function GlobalMovingObjectController.getShortestVector ( ax, ay, bx, by )
+function MovingObjectGlobalAI.getClosestObject ( hObjectA, hObjectB, x, y, z, space )
 --------------------------------------------------------------------------------
-	
-    local lenA = math.vectorLength ( ax, ay )
-    local lenB = math.vectorLength ( bx, by )
+
+    local distanceA = this.getDistanceToObject ( hObjectA, x, y, z, space )
+    local distanceB = this.getDistanceToObject ( hObjectB, x, y, z, space )
     
-    if ((lenA == 0) or (lenB < lenA)) then
-        return bx, by
+    if (distanceA <= distanceB) then
+        return hObjectA
     end
     
-    if ((lenB == 0) or (lenA < lenB)) then
-        return ax, ay
-    end
-    
-    return ax, ay
-	
+    return hObjectB
+
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------
