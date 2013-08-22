@@ -17,7 +17,7 @@ function MovingObjectGlobalAI.setObjectTranslation ( hObject, x, y, z, space )
     end
     
     resx, resy, resz = this.keepObjectWithinWalls( hObject, resx, resy, resz, space )
-    
+        
     object.setTranslation ( hObject, resx, resy, resz, space )
 	
 --------------------------------------------------------------------------------

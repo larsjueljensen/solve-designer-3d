@@ -33,11 +33,17 @@ function MovingObjectGlobalAI.snapToSnapObject ( hObject, hSnapToObject, x, y, z
 
             -- Get snap object's position
             local sx, sy, sz = object.getTranslation ( hSnapToObject, space )
-            dx, dy, dz = this.calculateVectorFromSnapObjectToSnapPosition ( dx, dy, dz, distanceBetweenHullCenters )
-            return sx + dx, sy + dy, sz + dz
-        
-        end
-        
+            dx, dy, dz = this.restrictVectorToAxisAndLength ( dx, dy, dz, distanceBetweenHullCenters )
+            
+            -- Only correct the position of the axis affected by the snap
+            if (math.abs ( dx ) > 0) then
+                return sx + dx, y, z
+            elseif (math.abs ( dy ) > 0) then
+                return x, sy + dy, z
+            elseif (math.abs ( dz ) > 0) then
+                return x, y, sz + dz
+            end
+        end        
     end
 
     return x, y, z

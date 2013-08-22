@@ -10,7 +10,9 @@ function GlobalMovingObjectController.onMouseButtonDown ( nButton, nPointX, nPoi
 	
     -- If the left mouse button was pressed
     if ( nButton == this.kLeftButton ( ) ) then
-    
+
+        user.sendEventImmediate( application.getCurrentUser ( ), "HighlightController", "onDisable" )
+
         -- Get the first object with a sensor that is found using ray casting (ie. first sensor hit with mouse cursor)
         local hHitObject, nHitDist, nHitSensorID = scene.getFirstHitSensorWithID ( application.getCurrentUserScene ( ), nRayPntX, nRayPntY, nRayPntZ, nRayDirX, nRayDirY, nRayDirZ, 1000, this.kSensorCategoryBitMovable ( ) )
         

@@ -8,13 +8,10 @@
 function DesignerPlugin_Main.CreatePaletteItemsFromXML ( sXML )
 --------------------------------------------------------------------------------
     
-   -- this.LogToWeb ( "CreatePaletteItemsFromXML: "..xml.toString ( xml.getRootElement ( sXML ) ) )
-    
     local hResult = table.newInstance (  )
     local hRoot = xml.getRootElement ( sXML )
     local hPaletteItem = xml.getElementFirstChildWithName ( hRoot, "paletteItem" )
      
-     --this.LogToWeb ( "Finding all article numbers in XML data." )
      while (hPaletteItem ~= nil)
      do
          local hArticleInfo = xml.getElementFirstChildWithName ( hPaletteItem, "articleInfo" )

@@ -8,11 +8,13 @@
 function DragAndDropController.setDragObjectSensorMaskBits ( hObject )
 --------------------------------------------------------------------------------
 
+    local sensorCategoryBit = this.kSensorMovable ( )
+
     if ( sensor.getCount ( hObject ) > 0 ) then
         sensor.setActiveAt ( hObject, 0, true )
-        sensor.setCategoryBitAt ( hObject, 0, this.kSensorCategoryBitMovable ( ), true )
-        sensor.setMaskBitAt ( hObject, 0, this.kSensorCategoryBitMovable ( ), true )
-        sensor.setIDAt ( hObject, 0, this.kSensorCategoryBitMovable ( ) )
+        sensor.setCategoryBitAt ( hObject, 0, sensorCategoryBit, true )
+        sensor.setMaskBitAt ( hObject, 0, sensorCategoryBit, true )
+        sensor.setIDAt ( hObject, 0, sensorCategoryBit )
     end
 
     for i = 0, object.getChildCount ( hObject ) - 1 do

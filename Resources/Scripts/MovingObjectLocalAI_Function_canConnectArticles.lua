@@ -1,22 +1,24 @@
 --------------------------------------------------------------------------------
---  Function......... : highlightObject
+--  Function......... : canConnectArticles
 --  Author........... : 
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function CommonObjectProperties.highlightObject ( hObject, bTurnOn )
+function MovingObjectLocalAI.canConnectArticles ( sArticleNumberA, sArticleNumberB )
 --------------------------------------------------------------------------------
-        
-    if (bTurnOn) then
-        shape.overrideMeshMaterialDiffuse ( hObject, 0.8, 0.8, 1.0, 1.0 )
-    else
-        shape.overrideMeshMaterialDiffuse ( hObject, 0.8, 0.8, 0.8, 1.0 )    
-    end
 
-    for i = 0, object.getChildCount ( hObject ) - 1 do
-        this.highlightObject ( object.getChildAt ( hObject, i ), bTurnOn )
+    local hCategoriesA = this.getCouplingCategories ( sArticleNumberA )
+    local hCategoriesB = this.getCouplingCategories ( sArticleNumberB )
+    
+    for i = 0, table.getSize ( hCategoriesA ) - 1 do
+        local sCategory = table.getAt ( hCategoriesA, i )
+        if (table.contains ( hCategoriesB, sCategory )) then
+            return true
+        end
     end
+    
+    return false
 	
 --------------------------------------------------------------------------------
 end

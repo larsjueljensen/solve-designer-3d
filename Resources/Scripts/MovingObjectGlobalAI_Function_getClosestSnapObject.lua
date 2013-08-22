@@ -8,6 +8,7 @@
 function MovingObjectGlobalAI.getClosestSnapObject ( x, y, z, space )
 --------------------------------------------------------------------------------
 
+    -- If there are snap objects nearby (detected by collision)
     if not hashtable.isEmpty ( this.htSnapObjects ( ) ) then
 
         local size = hashtable.getSize ( this.htSnapObjects ( ) )

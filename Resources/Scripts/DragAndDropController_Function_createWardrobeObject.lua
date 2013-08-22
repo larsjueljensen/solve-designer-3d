@@ -19,6 +19,7 @@ function DragAndDropController.createWardrobeObject ( hObject )
 
     object.addAIModel ( hWardrobeObject, "CommonObjectProperties" )
     object.setAIVariable ( hWardrobeObject, "CommonObjectProperties", "articleNumber", this.articleNumber ( ) )
+    object.setAIVariable ( hWardrobeObject, "CommonObjectProperties", "articleType", this.articleType ( ) )
     object.setAIVariable ( hWardrobeObject, "CommonObjectProperties", "objectWidth", this.objectWidth ( ) )
     object.setAIVariable ( hWardrobeObject, "CommonObjectProperties", "objectHeight", this.objectHeight ( ) )
     object.setAIVariable ( hWardrobeObject, "CommonObjectProperties", "objectDepth", this.objectDepth ( ) )

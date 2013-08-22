@@ -8,24 +8,32 @@
 function GlobalMovingObjectController.onMouseButtonUp ( nButton, nPointX, nPointY, nRayPntX, nRayPntY, nRayPntZ, nRayDirX, nRayDirY, nRayDirZ )
 --------------------------------------------------------------------------------
 
-    if (this.hMovingObject ( ) ~= nil ) then
+    if ( nButton == this.kLeftButton ( ) ) then
 
-        this.setObjectOpacity ( this.hMovingObject ( ), 1.0 )
-        
-        local hParent = object.getParent ( this.hMovingObject ( ) )
+        if (this.hMovingObject ( ) ~= nil ) then
 
-        for i = 0, object.getChildCount ( this.hMovingObject ( ) ) - 1 do 
+            this.setObjectOpacity ( this.hMovingObject ( ), 1.0 )
             
-            object.setParent ( object.getChildAt ( this.hMovingObject ( ), 0 ), hParent, true )
-        	
+            local hParent = object.getParent ( this.hMovingObject ( ) )
+
+            for i = 0, object.getChildCount ( this.hMovingObject ( ) ) - 1 do 
+                
+                local hChild = object.getChildAt ( this.hMovingObject ( ), i )
+                object.setParent ( hChild, hParent, true )
+                object.sendEvent ( hChild, "HighlightObjectAI", "onHighlight", false )
+            end
+                    
+            -- Destroy the moving object
+            scene.destroyRuntimeObject ( application.getCurrentUserScene ( ), this.hMovingObject ( ) )
+            
+            -- Clear the variables used to store the objects
+            this.hMovingObject ( nil )
+            this.correctionAngle ( 0 )
         end
-                
-        -- Destroy the moving object
-        scene.destroyRuntimeObject ( application.getCurrentUserScene ( ), this.hMovingObject ( ) )
-                
-        -- Clear the variables used to store the objects
-        this.hMovingObject ( nil )
-        this.correctionAngle ( 0 )
+
+        this.highlightObjectUnderCursor ( nRayPntX, nRayPntY, nRayPntZ, nRayDirX, nRayDirY, nRayDirZ )
+        user.sendEvent ( application.getCurrentUser ( ), "HighlightController", "onEnable" )
+        
     end
 	
 --------------------------------------------------------------------------------

@@ -5,14 +5,10 @@
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function HighlightObjectAI.onHighlight ( bTurnHighlightOn )
+function HighlightObjectAI.onHighlight ( bTurnOn )
 --------------------------------------------------------------------------------
-	
-    if ( bTurnHighlightOn ) then
-        this.highlightObject( this.getObject ( ), true )
-    else
-        this.highlightObject( this.getObject ( ), false )
-    end
+
+    this.highlightObject( this.getObject ( ), bTurnOn )
 	
 --------------------------------------------------------------------------------
 end

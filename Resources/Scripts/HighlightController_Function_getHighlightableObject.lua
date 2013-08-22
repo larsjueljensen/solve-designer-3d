@@ -8,21 +8,16 @@
 function HighlightController.getHighlightableObject ( hHitObject )
 --------------------------------------------------------------------------------
 
-    if ( hHitObject ~= nil ) then
-
-        local hResult = hHitObject
-        local hParent = object.getParent ( hResult )
-        
-        while ( hParent ~= nil ) do
-            hResult = hParent
-            hParent = object.getParent ( hParent )
-        end
-
+    local hResult = hHitObject
+    
+    while ( hResult ~= nil ) do
         if ( this.isHighlightableObject ( hResult ) ) then
             return hResult
         end
+        
+        hResult = object.getParent ( hResult )
     end
-    
+
     return nil;
     
 --------------------------------------------------------------------------------

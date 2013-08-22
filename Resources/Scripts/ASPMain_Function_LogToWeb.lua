@@ -8,7 +8,8 @@
 function ASPMain.LogToWeb ( sLogStatement )
 --------------------------------------------------------------------------------
     
-	    --system.openURL ( 'javascript:onPluginLog("'..sLogStatement..'");', '' )
+    system.openURL ( 'javascript:onPluginLog("'..sLogStatement..'");', '' )
+
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------

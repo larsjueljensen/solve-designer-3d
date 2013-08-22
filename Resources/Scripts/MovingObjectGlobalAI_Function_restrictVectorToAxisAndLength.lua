@@ -1,13 +1,14 @@
 --------------------------------------------------------------------------------
---  Function......... : calculateVectorFromSnapObjectToSnapPosition
---  Author........... : 
---  Description...... : 
+--  Function......... : restrictVectorToAxisAndLength
+--  Author........... : Lars Juel Jensen
+--  Description...... : Restricts the input vector to the axis of it's largest component
+--                      and scales it to the wanted length
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function MovingObjectGlobalAI.calculateVectorFromSnapObjectToSnapPosition ( dx, dy, dz, length )
+function MovingObjectGlobalAI.restrictVectorToAxisAndLength ( dx, dy, dz, length )
 --------------------------------------------------------------------------------
-
+	
     local x, y, z = math.abs ( dx ), math.abs ( dy ), math.abs ( dz )
 
     if ( x > y and x > z ) then

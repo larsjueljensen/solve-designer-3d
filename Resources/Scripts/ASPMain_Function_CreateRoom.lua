@@ -5,9 +5,10 @@
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function ASPMain.CreateRoom ( nID )
+function ASPMain.CreateRoom ( )
 --------------------------------------------------------------------------------
 
+    local nID = 1
     local hScene = application.getCurrentUserScene ( )
     local hUser = application.getCurrentUser ( ) 
     local hRoom = scene.getTaggedObject ( hScene, "User_Room" )
@@ -32,12 +33,6 @@ function ASPMain.CreateRoom ( nID )
     user.setAIVariable ( hUser, "ASPRoom_AI", "nSy2", nSy2 )
     user.setAIVariable ( hUser, "ASPRoom_AI", "nSz2", nSz2 )
     
-    
-    
---     local nSx2 = (1)*0.04   --tykkelse
---     local nSy2 = (1)        --høyde
---     local nSz2 = (1)        --Lengde
---     
     local nFloorScaleX = 1
     local nFloorScaleY = 1
     local nFloorScaleZ = 1

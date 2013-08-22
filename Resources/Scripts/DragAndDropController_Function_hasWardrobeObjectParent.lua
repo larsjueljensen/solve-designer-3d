@@ -1,19 +1,25 @@
 --------------------------------------------------------------------------------
---  Function......... : xmlLoaded
+--  Function......... : hasWardrobeObjectParent
 --  Author........... : 
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function DesignerPlugin_Main.xmlLoaded ( )
+function DragAndDropController.hasWardrobeObjectParent ( hObject )
 --------------------------------------------------------------------------------
 	
-	
-    this.LogToWeb ( "xmlLoaded!" )
+    local hParent = object.getParent ( hObject )
     
-     local hPaletteItems = this.CreateItemsFromXML (  )
-     this.LogToWeb ( "xmlLoaded: "..hPaletteItems )
-     
+    while (hParent ~= nil) do 
+        if (this.isHelperObject ( hParent, "WardrobeObject" )) then
+            return true
+        end
+        
+        hParent = object.getParent ( hParent )
+    end
+    
+    return false
+	
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------

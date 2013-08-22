@@ -11,7 +11,7 @@ function ASPMain.Preload ( )
     local hNewSlider0 = scene.createRuntimeObject ( hScene, "SliderObject" )
     scene.setRuntimeObjectTag ( hScene, hNewSlider0, "Slider" ) 
     this.hSliderObject( hNewSlider0 )
-    this.CreateRoom ( 1 )
+    this.CreateRoom ( )
 
 	
 --------------------------------------------------------------------------------

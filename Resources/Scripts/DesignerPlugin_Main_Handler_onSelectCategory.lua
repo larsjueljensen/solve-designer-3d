@@ -8,6 +8,7 @@
 function DesignerPlugin_Main.onSelectCategory ( sCategory )
 --------------------------------------------------------------------------------
 
+    log.message ( "DesignerPlugin_Main.onSelectCategory ( "..sCategory.." )" )
     this.LogToWeb ( "onSelectCategory: "..sCategory )
     this.PopulatePaletteWithCategory ( sCategory )
 

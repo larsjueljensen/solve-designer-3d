@@ -16,14 +16,10 @@ function HighlightController.isHighlightableObject ( hObject )
         return true
     end
 
---     if ( this.isHelperObject ( hObject, "MovingObjectGlobal" ) ) then
---         return true
---     end
--- 	
---     if ( this.isHelperObject ( hObject, "MovingObjectLocal" ) ) then
---         return true
---     end
--- 	
+    if ( this.isMovingObject ( hObject ) ) then
+        return true
+    end
+	
     return false
     
 --------------------------------------------------------------------------------

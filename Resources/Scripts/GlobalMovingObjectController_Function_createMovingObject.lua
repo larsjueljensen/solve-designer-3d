@@ -37,14 +37,15 @@ function GlobalMovingObjectController.createMovingObject ( hHelperObject, sType 
     -- Add a behavioural model to moving object helper that corresponds to it's type
     -- (ie. A hull (global) object has different kinds of restrictions than a drawer (local) )
     local aiModelName = "MovingObject"..sType.."AI"
-    object.addAIModel ( hMovingObject, aiModelName )
-    
+    object.addAIModel ( hMovingObject, aiModelName )    
     
     this.transferAIVariable ( hMovingObject, aiModelName, hHelperObject, "CommonObjectProperties", "objectWidth" )
     this.transferAIVariable ( hMovingObject, aiModelName, hHelperObject, "CommonObjectProperties", "objectHeight" )
     this.transferAIVariable ( hMovingObject, aiModelName, hHelperObject, "CommonObjectProperties", "objectDepth" )
 
-    object.sendEventImmediate ( hMovingObject, aiModelName, "onCreateSnapSensor" )
+    if string.compare ( "Global", sType ) == 0 then
+        object.sendEventImmediate ( hMovingObject, aiModelName, "onCreateSnapSensor" )
+    end
     
     this.setObjectOpacity ( hMovingObject, 0.8 )
     object.sendEvent ( hHelperObject, "HighlightObjectAI", "onHighlight", true )

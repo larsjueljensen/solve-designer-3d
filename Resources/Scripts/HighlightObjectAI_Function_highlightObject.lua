@@ -5,17 +5,26 @@
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function HighlightObjectAI.highlightObject ( hObject, bTurnOn )
+function HighlightObjectAI.highlightObject ( hObject, bTurnOn, nR, nG, nB, nF )
 --------------------------------------------------------------------------------
-        
-    if (bTurnOn) then
-        shape.overrideMeshMaterialDiffuse ( hObject, 0.8, 0.8, 1.0, 1.0 )
-    else
-        shape.overrideMeshMaterialDiffuse ( hObject, 0.8, 0.8, 0.8, 1.0 )    
-    end
+    
+    if not table.isEmpty ( this.meshes ( ) ) then
+     
+        for i = 0, table.getSize ( this.meshes ( ) ) - 1 do
 
-    for i = 0, object.getChildCount ( hObject ) - 1 do
-        this.highlightObject ( object.getChildAt ( hObject, i ), bTurnOn )
+            local hMesh = table.getAt ( this.meshes ( ), i )
+            
+            if ( bTurnOn ) then
+                shape.overrideMeshMaterialDiffuse ( hMesh, 0.8, 0.8, 1.5, 1.0 )
+            else
+                local nRed = table.getAt ( this.colorsRed ( ), i )
+                local nGreen = table.getAt ( this.colorsGreen ( ), i )
+                local nBlue = table.getAt ( this.colorsBlue ( ), i)
+                local nFactor = table.getAt ( this.colorsFactor ( ), i)
+                
+                shape.overrideMeshMaterialDiffuse ( hMesh, nRed, nGreen, nBlue, nFactor )
+            end
+        end    
     end
 	
 --------------------------------------------------------------------------------

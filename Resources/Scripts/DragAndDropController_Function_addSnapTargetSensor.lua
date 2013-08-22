@@ -1,14 +1,13 @@
 --------------------------------------------------------------------------------
---  Function......... : addHullSensors
+--  Function......... : addSnapTargetSensor
 --  Author........... : 
 --  Description...... : 
 --------------------------------------------------------------------------------
 
 --------------------------------------------------------------------------------
-function DragAndDropController.addHullSensors ( hObject )
+function DragAndDropController.addSnapTargetSensor ( hObject )
 --------------------------------------------------------------------------------
 	
-    
     local minx, miny, minz, maxx, maxy, maxz = this.getObjectBounds ( hObject )
     local width, height, depth = maxx - minx, maxy - miny, maxz - minz
     
@@ -23,6 +22,7 @@ function DragAndDropController.addHullSensors ( hObject )
     sensor.setMaskBitAt ( hObject, 0, 0, false )
     sensor.setCategoryBitAt ( hObject, 0, 3, true )
     sensor.setMaskBitAt ( hObject, 0, 3, true )
+
 	
 --------------------------------------------------------------------------------
 end

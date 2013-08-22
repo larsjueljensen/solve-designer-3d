@@ -11,10 +11,8 @@ function ASPMain.onSetRoomSize ( nLength, nWidth )
     this.RoomLength ( nLength )
     this.RoomWidth ( nWidth )
     
-    this.CreateRoom ( 1 )
-
-	
-	
+    this.CreateRoom ( )
+    
 --------------------------------------------------------------------------------
 end
 --------------------------------------------------------------------------------
